@@ -7,29 +7,51 @@
             <p>Already have an account ? <a routerLink="/login">Login</a> </p>
         </div>
         <h2>Register</h2>
-        <div class="form-container">
-            <div class="form-item">
-                <input type="text" name="" id="" placeholder="Name">
-            </div>
-            <div class="form-item">
-                <input type="email" name="" id="" placeholder="Email id">
-            </div>
-            <div class="form-item">
-                <input type="date" name="" id="" placeholder="D.O.B">
-            </div>
-            <div class="form-item">
-                <select name="gender" id="">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+        <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value)">
+            <div class="form-container">
+                <div class="form-item">
+                    <input type="text" formControlName="Name" id="" placeholder="Name">
+                    <span class="error"
+                        *ngIf="userNameValidator && userNameValidator.invalid && userNameValidator.touched">this
+                        field is
+                        required *</span>
+                </div>
+                <div class="form-item">
+                    <input type="email" formControlName="EmailId" id="" placeholder="Email id">
+                    <span class="error"
+                        *ngIf="userEmailIdValidator && userEmailIdValidator.invalid && userEmailIdValidator.touched">this
+                        field is
+                        required *</span>
+                </div>
+                <div class="form-item">
+                    <input type="date" formControlName="DOB" id="" placeholder="D.O.B">
+                    <span class="error"
+                        *ngIf="userDOBValidator && userDOBValidator.invalid && userDOBValidator.touched">this
+                        field is
+                        required *</span>
+                </div>
+                <div class="form-item">
+                    <select name="gender" formControlName="Gender" id="">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
 
-                </select>
+                    </select>
+                    <span class="error"
+                        *ngIf="userGenderValidator && userGenderValidator.invalid && userGenderValidator.touched">this
+                        field is
+                        required *</span>
+                </div>
+                <div class="form-item">
+                    <input type="password" formControlName="Password" id="" placeholder="Password">
+                    <span class="error"
+                        *ngIf="userPasswordValidator && userPasswordValidator.invalid && userPasswordValidator.touched">this
+                        field is
+                        required *</span>
+                </div>
+                <div class="form-item">
+                    <button [disabled]="registerForm.invalid">submit</button>
+                </div>
             </div>
-            <div class="form-item">
-                <input type="password" name="" id="" placeholder="Password">
-            </div>
-            <div class="form-item">
-                <button>submit</button>
-            </div>
-        </div>
+        </form>
     </div>
 </div>

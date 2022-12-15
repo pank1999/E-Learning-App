@@ -33,7 +33,6 @@
  .form-item input, .form-item select{
      width:400px;
      height: 40px;
-     margin-bottom: 20px;
      border-radius: 10px;
      border: none;
      padding-left: 20px;
@@ -60,4 +59,14 @@
  .container-right-top p{
    font-size: 1.2rem;
    color:white;
+ }
+ .form-item{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+ }
+ .error{
+   color: red;
+   font-size: 0.8rem;
+   font-family: 'Roboto';
  }

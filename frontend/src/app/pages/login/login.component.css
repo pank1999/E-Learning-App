@@ -58,3 +58,13 @@
   font-size: 1.2rem;
   color:white;
 }
+.form-item{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+ }
+ .error{
+   color: red;
+   font-size: 0.8rem;
+   font-family: 'Roboto';
+ }
