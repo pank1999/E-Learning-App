@@ -9,6 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthServiceService } from './auth/auth-service.service';
+import { HttpClientModule } from '@angular/common/http';
+
 // import { UserModule } from './user/user.module';
 
 @NgModule({
@@ -24,8 +27,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthServiceService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
