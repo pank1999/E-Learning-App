@@ -6,6 +6,7 @@ import {
   Validator,
   Validators,
 } from '@angular/forms';
+import { AuthServiceService } from 'src/app/auth/auth-service.service';
 // import { user } from '../../interface/user.types';
 
 @Component({
@@ -14,7 +15,7 @@ import {
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  constructor() {}
+  constructor(private authService: AuthServiceService) {}
 
   ngOnInit(): void {}
   registerForm = new FormGroup({
@@ -25,8 +26,11 @@ export class RegisterComponent implements OnInit {
     Password: new FormControl('', [Validators.required]),
   });
 
-  registerUser(user: any) {
+  async registerUser(user: any) {
     console.log(user);
+    const password = await this.authService.passwordEncyption(user.password);
+    console.log(password);
+    await this.authService.register(user);
   }
   get userNameValidator() {
     return this.registerForm.get('Name');
