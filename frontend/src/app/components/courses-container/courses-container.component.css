@@ -1,0 +1,18 @@
+.courses-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.courses-item{
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    background-color: rgb(33, 180, 143);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.courses-item:hover{
+    transform: scale(1.1);
+    transition: ease;
+}

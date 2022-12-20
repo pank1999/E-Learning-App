@@ -72,24 +72,7 @@ h2{
 .top-right{
     flex: 1;
 }
-.courses-container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.courses-item{
-    height: 200px;
-    width: 200px;
-    border-radius: 10px;
-    background-color: rgb(33, 180, 143);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.courses-item:hover{
-    transform: scale(1.1);
-    transition: ease;
-}
+
 
 /* features section */
 .feature-section{
@@ -130,7 +113,7 @@ h2{
     flex: 1;
 }
 .footer-left h2{
-    color:rgb(76, 223, 162) ;
+    color:rgb(33, 180, 143) ;
 }
 .footer-left p{
     font-size: 1rem;

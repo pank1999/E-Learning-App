@@ -11,8 +11,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthServiceService } from './auth/auth-service.service';
 import { HttpClientModule } from '@angular/common/http';
-
-// import { UserModule } from './user/user.module';
+import { CoursesContainerComponent } from './components/courses-container/courses-container.component';
+import { HomeComponent } from './learning/home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
+    CoursesContainerComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
