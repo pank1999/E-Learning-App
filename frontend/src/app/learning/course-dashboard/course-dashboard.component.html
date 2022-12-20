@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="left">
+        <div class="left-top">
+            <h2>Course Name</h2>
+            <div class="video-container">
+                <video controls id="video" [autoplay]="autoplay" width="700" height="350"
+                    [style.visibility]="VideoVisibility">
+                    <source
+                        src="./../../../assets/videos/introduction to Datatypes  in python _ class 12 cbse _ by learn tech.mp4"
+                        type="video/mp4" />
+                    Browser not supported
+                </video>
+                <button class="play" [style.display]="PlayButtonVisibility" (click)="PlayButtonClicked()">play</button>
+            </div>
+        </div>
+        <div class="left-bottom">
+            <h3>Description</h3>
+            <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the
+                visual form of a document or a typeface without relying on meaningful content...</p>
+        </div>
+    </div>
+    <div class="right">
+        <div class="right-top">
+            <div class="progress-bar">
+                <div class="progress">
+                    <span>50%</span>
+                </div>
+            </div>
+        </div>
+        <div class="right-bottom">
+            <div class="playlist-container">
+                <div>
+                    <div class="playlist-item">
+                        <p>01</p>
+                        <p>introduction</p>
+                        <i class="fa-solid fa-caret-down" style="cursor: pointer;" (click)="ToggleSubTopics()"></i>
+                        <!-- <ng-template #upShowArrowIcon>
+                            <i class="fa-solid fa-caret-up" style="cursor: pointer;" (click)="ToggleSubTopics()"></i>
+                        </ng-template> -->
+                    </div>
+                    <div class="subTopics" [style.display]="DisplaySubTopics">
+                        <p>1.1</p>
+                        <p>Topic 1</p>
+                    </div>
+                    <div class="subTopics" [style.display]="DisplaySubTopics">
+                        <p>1.2</p>
+                        <p>Topic 1</p>
+                    </div>
+                </div>
+                <div class="playlist-item">
+                    <p>01</p>
+                    <p>introduction</p>
+                    <i class="fa-solid fa-caret-down"></i>
+                </div>
+                <div class="playlist-item">
+                    <p>01</p>
+                    <p>introduction</p>
+                    <i class="fa-solid fa-caret-down"></i>
+                </div>
+                <div class="playlist-item">
+                    <p>01</p>
+                    <p>introduction</p>
+                    <i class="fa-solid fa-caret-down"></i>
+                </div>
+                <div class="playlist-item">
+                    <p>01</p>
+                    <p>introduction</p>
+                    <i class="fa-solid fa-caret-down"></i>
+                </div>
+                <div class="playlist-item">
+                    <p>01</p>
+                    <p>introduction</p>
+                    <i class="fa-solid fa-caret-down"></i>
+                </div>
+                <div class="playlist-item">
+                    <p>01</p>
+                    <p>introduction</p>
+                    <i class="fa-solid fa-caret-down"></i>
+                </div>
+                <div class="playlist-item">
+                    <p>01</p>
+                    <p>introduction</p>
+                    <i class="fa-solid fa-caret-down"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

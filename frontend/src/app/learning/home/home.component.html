@@ -1,0 +1,50 @@
+<div class="container">
+    <!-- <div class="live-class-banner">
+        <div class="banner-left">
+            <img src="./../../../assets/image/Landing-page-img.jpg" alt="">
+        </div>
+        <div class="banner-right">
+            <p></p>
+            <button>Join Now</button>
+        </div>
+    </div> -->
+    <div class="programming-section">
+        <div class="top">
+            <h3>Programming Languages</h3>
+        </div>
+        <div class="bottom">
+            <div (click)="MoveLeft()">
+                <i class="fa-solid fa-caret-left" style="font-size: 30px;color: rgb(255, 187, 40);"></i>
+            </div>
+            <div class="courses-container">
+                <div routerLink='/learning/dashboard/1' class="courses-item"
+                    *ngFor="let item of programmingLanguageList" [style.background-color]="item.bgColor">
+                    <h2>{{item.title}}</h2>
+                </div>
+            </div>
+            <div (click)="MoveRight()">
+                <i class="fa-solid fa-caret-right" style="font-size: 30px;color: rgb(255, 187, 40);"></i>
+            </div>
+        </div>
+    </div>
+    <div class="popular-course-section">
+        <div class="top">
+            <h3>Popular Courses</h3>
+        </div>
+        <div class="bottom">
+            <div (click)="MoveLeft()">
+                <i class="fa-solid fa-caret-left" style="font-size: 30px;color: rgb(255, 187, 40);"></i>
+            </div>
+            <!-- <app-courses-container></app-courses-container> -->
+            <div class="courses-container">
+                <div routerLink='/learning/dashboard/1' class="courses-item" *ngFor="let course of coursesList"
+                    [style.background-color]="course.bgColor">
+                    <h2>{{course.title}}</h2>
+                </div>
+            </div>
+            <div (click)="MoveRight()">
+                <i class="fa-solid fa-caret-right" style="font-size: 30px;color: rgb(255, 187, 40);"></i>
+            </div>
+        </div>
+    </div>
+</div>
