@@ -13,6 +13,7 @@ import { AuthServiceService } from './auth/auth-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CoursesContainerComponent } from './components/courses-container/courses-container.component';
 import { HomeComponent } from './learning/home/home.component';
+import { CourseDashboardComponent } from './learning/course-dashboard/course-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HomeComponent } from './learning/home/home.component';
     RegisterComponent,
     CoursesContainerComponent,
     HomeComponent,
+    CourseDashboardComponent,
   ],
   imports: [
     BrowserModule,

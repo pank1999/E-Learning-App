@@ -5,9 +5,7 @@
             <div class="video-container">
                 <video controls id="video" [autoplay]="autoplay" width="700" height="350"
                     [style.visibility]="VideoVisibility">
-                    <source
-                        src="./../../../assets/videos/introduction to Datatypes  in python _ class 12 cbse _ by learn tech.mp4"
-                        type="video/mp4" />
+                    <source src="https://www.youtube.com/watch?v=zgSj6w3fBi4" />
                     Browser not supported
                 </video>
                 <button class="play" [style.display]="PlayButtonVisibility" (click)="PlayButtonClicked()">play</button>
@@ -29,58 +27,22 @@
         </div>
         <div class="right-bottom">
             <div class="playlist-container">
-                <div>
+                <div *ngFor="let section of coursePlayList">
                     <div class="playlist-item">
-                        <p>01</p>
-                        <p>introduction</p>
-                        <i class="fa-solid fa-caret-down" style="cursor: pointer;" (click)="ToggleSubTopics()"></i>
+                        <p>{{section.id}}</p>
+                        <p>{{section.Topic}}</p>
+                        <i class="fa-solid fa-caret-down" style="cursor: pointer;"
+                            (click)="ToggleSubTopics(section.id)"></i>
                         <!-- <ng-template #upShowArrowIcon>
                             <i class="fa-solid fa-caret-up" style="cursor: pointer;" (click)="ToggleSubTopics()"></i>
                         </ng-template> -->
                     </div>
-                    <div class="subTopics" [style.display]="DisplaySubTopics">
-                        <p>1.1</p>
-                        <p>Topic 1</p>
+                    <div class="subTopics" *ngFor="let subTopics of section.Videos"
+                        (click)="PlaySelectedVideo(section.id,subTopics.id)"
+                        [style.display]="section.Toggle?'flex':'none'">
+                        <p>1</p>
+                        <p>{{subTopics.subTopics}}</p>
                     </div>
-                    <div class="subTopics" [style.display]="DisplaySubTopics">
-                        <p>1.2</p>
-                        <p>Topic 1</p>
-                    </div>
-                </div>
-                <div class="playlist-item">
-                    <p>01</p>
-                    <p>introduction</p>
-                    <i class="fa-solid fa-caret-down"></i>
-                </div>
-                <div class="playlist-item">
-                    <p>01</p>
-                    <p>introduction</p>
-                    <i class="fa-solid fa-caret-down"></i>
-                </div>
-                <div class="playlist-item">
-                    <p>01</p>
-                    <p>introduction</p>
-                    <i class="fa-solid fa-caret-down"></i>
-                </div>
-                <div class="playlist-item">
-                    <p>01</p>
-                    <p>introduction</p>
-                    <i class="fa-solid fa-caret-down"></i>
-                </div>
-                <div class="playlist-item">
-                    <p>01</p>
-                    <p>introduction</p>
-                    <i class="fa-solid fa-caret-down"></i>
-                </div>
-                <div class="playlist-item">
-                    <p>01</p>
-                    <p>introduction</p>
-                    <i class="fa-solid fa-caret-down"></i>
-                </div>
-                <div class="playlist-item">
-                    <p>01</p>
-                    <p>introduction</p>
-                    <i class="fa-solid fa-caret-down"></i>
                 </div>
             </div>
         </div>
