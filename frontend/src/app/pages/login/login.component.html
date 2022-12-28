@@ -10,14 +10,14 @@
         <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
             <div class="form-container">
                 <div class="form-item">
-                    <input type="email" formControlName="EmailId" id="" placeholder="Email id">
+                    <input type="email" formControlName="email" id="" placeholder="Email id">
                     <span class="error"
                         *ngIf="userEmailIdValidator && userEmailIdValidator.invalid && userEmailIdValidator.touched">this
                         field is
                         required *</span>
                 </div>
                 <div class="form-item">
-                    <input type="password" formControlName="Password" id="" placeholder="Password">
+                    <input type="password" formControlName="password" id="" placeholder="Password">
                     <span class="error"
                         *ngIf="userPasswordValidator && userPasswordValidator.invalid && userPasswordValidator.touched">this
                         field is

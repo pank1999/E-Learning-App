@@ -1,13 +1,9 @@
 <div class="container">
-    <!-- <div class="live-class-banner">
-        <div class="banner-left">
-            <img src="./../../../assets/image/Landing-page-img.jpg" alt="">
-        </div>
+    <div class="live-class-banner">
         <div class="banner-right">
-            <p></p>
-            <button>Join Now</button>
+            <button>Start Now</button>
         </div>
-    </div> -->
+    </div>
     <div class="programming-section">
         <div class="top">
             <h3>Programming Languages</h3>
@@ -18,8 +14,8 @@
             </div>
             <div class="courses-container">
                 <div routerLink='/learning/dashboard/1' class="courses-item"
-                    *ngFor="let item of programmingLanguageList" [style.background-color]="item.bgColor">
-                    <h2>{{item.title}}</h2>
+                    *ngFor="let item of programmingLanguageList">
+                    <img [src]="item.imgUrl" height="180px" width="180px" alt="">
                 </div>
             </div>
             <div (click)="MoveRight()">

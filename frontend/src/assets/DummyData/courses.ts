@@ -1,9 +1,21 @@
 export const programmingLanguages = [
-  { title: 'C++', imgUrl: './image/C++.png', bgColor: 'blue' },
-  { title: 'Python', imgUrl: './image/C++.png', bgColor: 'yellow' },
-  { title: 'Java', imgUrl: './image/C++.png', bgColor: 'red' },
-  { title: 'PHP', imgUrl: './image/C++.png', bgColor: 'skyblue' },
-  { title: 'Javascript', imgUrl: './image/C++.png', bgColor: 'orange' },
+  { title: 'C++', imgUrl: '../../../../assets/image/Cpp.png', bgColor: 'blue' },
+  {
+    title: 'Python',
+    imgUrl: './../../../assets/image/python.png',
+    bgColor: 'yellow',
+  },
+  { title: 'Java', imgUrl: './../../../assets/image/java.png', bgColor: 'red' },
+  {
+    title: 'PHP',
+    imgUrl: './../../../assets/image/php.png',
+    bgColor: 'skyblue',
+  },
+  {
+    title: 'Javascript',
+    imgUrl: './../../../assets/image/Javsscript.png',
+    bgColor: 'orange',
+  },
 ];
 export const courses = [
   { title: 'ML', imgUrl: './image/C++.png', bgColor: 'blue' },
