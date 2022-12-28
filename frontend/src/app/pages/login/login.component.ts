@@ -12,8 +12,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
   loginForm = new FormGroup({
-    EmailId: new FormControl('', [Validators.required]),
-    Password: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
   });
 
   async loginUser(user: any) {
@@ -22,9 +22,9 @@ export class LoginComponent implements OnInit {
   }
 
   get userEmailIdValidator() {
-    return this.loginForm.get('EmailId');
+    return this.loginForm.get('email');
   }
   get userPasswordValidator() {
-    return this.loginForm.get('Password');
+    return this.loginForm.get('password');
   }
 }

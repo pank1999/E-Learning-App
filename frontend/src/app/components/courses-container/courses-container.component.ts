@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { courses } from './../../../assets/DummyData/courses';
+import { programmingLanguages } from './../../../assets/DummyData/courses';
 
 @Component({
   selector: 'app-courses-container',
@@ -8,6 +8,6 @@ import { courses } from './../../../assets/DummyData/courses';
 })
 export class CoursesContainerComponent implements OnInit {
   constructor() {}
-  List = courses;
+  List = programmingLanguages;
   ngOnInit(): void {}
 }
