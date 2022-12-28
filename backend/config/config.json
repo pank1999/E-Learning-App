@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "E-learning-dbuser1",
+    "password": "AgnLkGdi",
+    "database": "E-leaning-db-dev",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "E-learning-dbuser1",
+    "password": "AgnLkGdi",
+    "database": "E-learning-db-test",
+    "host": "localhost",
+    "dialect": "postgres",
+    "logging": false
+  },
+  "production": {
+    "username": "E-learning-dbuser1",
+    "password": "AgnLkGdi",
+    "database": "E-learning-db",
+    "host": "postgres",
+    "dialect": "postgres"
+  }
+}
