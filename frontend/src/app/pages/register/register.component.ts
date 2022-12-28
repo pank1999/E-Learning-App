@@ -19,32 +19,32 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {}
   registerForm = new FormGroup({
-    Name: new FormControl('', [Validators.required]),
-    EmailId: new FormControl('', [Validators.required]),
-    DOB: new FormControl([Validators.required]),
-    Gender: new FormControl('Male', [Validators.required]),
-    Password: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required]),
+    dob: new FormControl([Validators.required]),
+    gender: new FormControl('Male', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
   });
 
   async registerUser(user: any) {
     console.log(user);
-    const password = await this.authService.passwordEncyption(user.password);
-    console.log(password);
+    // const password = await this.authService.passwordEncyption(user.password);
+    // console.log(password);
     await this.authService.register(user);
   }
   get userNameValidator() {
-    return this.registerForm.get('Name');
+    return this.registerForm.get('name');
   }
   get userEmailIdValidator() {
-    return this.registerForm.get('EmailId');
+    return this.registerForm.get('email');
   }
   get userDOBValidator() {
-    return this.registerForm.get('DOB');
+    return this.registerForm.get('dob');
   }
   get userGenderValidator() {
-    return this.registerForm.get('Gender');
+    return this.registerForm.get('gender');
   }
   get userPasswordValidator() {
-    return this.registerForm.get('Password');
+    return this.registerForm.get('password');
   }
 }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as CryptoJs from 'crypto-js';
 import { LoginUser, RegisterUser } from '../interface/user.types';
@@ -20,19 +20,49 @@ export class AuthServiceService {
   //login user
   async login(userLoginDetails: LoginUser) {
     console.log(userLoginDetails);
+    var header = {
+      headers: new HttpHeaders().set(
+        'Authorization',
+        `Bearer ${this.getToken()}`
+      ),
+    };
     const res = await this.http.post(
-      'http://localhost:3000/login',
-      userLoginDetails
+      'http://localhost:3000/api/v1/auth/login',
+      userLoginDetails,
+      header
     );
-    console.log(res);
+    res.subscribe(
+      (result) => {
+        console.log(result);
+        this.setToken(JSON.stringify(result));
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
   //user registration
   async register(userRegistrationDetails: RegisterUser) {
     console.log(userRegistrationDetails);
     const res = await this.http.post(
-      'http://localhost:3000/register',
+      'http://localhost:3000/api/v1/auth/signup',
       userRegistrationDetails
     );
-    console.log(res);
+    // console.log(res);
+    res.subscribe((result) => {
+      console.log('result', result);
+      this.setToken(JSON.stringify(result));
+      this.getToken();
+    });
+  }
+  public setToken(token: string) {
+    localStorage.setItem('token', token);
+  }
+  public getToken() {
+    const data = localStorage.getItem('token');
+    const parsedData = data && JSON.parse(data);
+    const token = parsedData.token;
+    console.log('token', token);
+    return token;
   }
 }
