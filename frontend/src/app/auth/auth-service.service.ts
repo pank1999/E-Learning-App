@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as CryptoJs from 'crypto-js';
+import { Observable } from 'rxjs';
 import { LoginUser, RegisterUser } from '../interface/user.types';
 
 @Injectable({
@@ -9,6 +10,8 @@ import { LoginUser, RegisterUser } from '../interface/user.types';
 export class AuthServiceService {
   constructor(private http: HttpClient) {}
   SecretKey = 'pankajSecureKey';
+  loggedInUser$: Observable<any> = new Observable();
+
   //password encryption
   public passwordEncyption(password: string) {
     var hashedPassword = CryptoJs.AES.encrypt(
@@ -20,18 +23,17 @@ export class AuthServiceService {
   //login user
   async login(userLoginDetails: LoginUser) {
     console.log(userLoginDetails);
-    var header = {
-      headers: new HttpHeaders().set(
-        'Authorization',
-        `Bearer ${this.getToken()}`
-      ),
-    };
-    const res = await this.http.post(
+    // var header = {
+    //   headers: new HttpHeaders().set(
+    //     'Authorization',
+    //     `Bearer ${this.getToken()}`
+    //   ),
+    // };
+    this.loggedInUser$ = await this.http.post(
       'http://localhost:3000/api/v1/auth/login',
-      userLoginDetails,
-      header
+      userLoginDetails
     );
-    res.subscribe(
+    this.loggedInUser$.subscribe(
       (result) => {
         console.log(result);
         this.setToken(JSON.stringify(result));
@@ -40,6 +42,7 @@ export class AuthServiceService {
         console.log(error);
       }
     );
+    return this.loggedInUser$;
   }
   //user registration
   async register(userRegistrationDetails: RegisterUser) {

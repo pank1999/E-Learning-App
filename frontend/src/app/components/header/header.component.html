@@ -22,8 +22,11 @@
                 <a routerLink="/Placements">Placements Prep</a>
             </li>
         </ul>
-        <a routerLink="/login">
+        <a routerLink="/login" *ngIf="User==false else elseBlock ">
             <button>Login</button>
         </a>
+        <ng-template #elseBlock>
+            <button>Logout</button>
+        </ng-template>
     </div>
 </div>
