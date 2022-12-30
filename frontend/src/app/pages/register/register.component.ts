@@ -6,7 +6,9 @@ import {
   Validator,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/auth/auth-service.service';
+import { RegisterUser } from 'src/app/interface/user.types';
 // import { user } from '../../interface/user.types';
 
 @Component({
@@ -15,7 +17,7 @@ import { AuthServiceService } from 'src/app/auth/auth-service.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  constructor(private authService: AuthServiceService) {}
+  constructor(private authService: AuthServiceService, private route: Router) {}
 
   ngOnInit(): void {}
   registerForm = new FormGroup({
@@ -28,9 +30,11 @@ export class RegisterComponent implements OnInit {
 
   async registerUser(user: any) {
     console.log(user);
-    // const password = await this.authService.passwordEncyption(user.password);
-    // console.log(password);
-    await this.authService.register(user);
+    await this.authService.register(user).then((res) => {
+      if (res) {
+        this.route.navigate(['/login']);
+      }
+    });
   }
   get userNameValidator() {
     return this.registerForm.get('name');

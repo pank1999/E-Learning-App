@@ -19,4 +19,10 @@ export class HeaderComponent implements OnInit {
       }
     });
   }
+  async logout() {
+    console.log('i am clicked');
+    this.User = false;
+    await localStorage.removeItem('token');
+    this.route.navigate(['/']);
+  }
 }

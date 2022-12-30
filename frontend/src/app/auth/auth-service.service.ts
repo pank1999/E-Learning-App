@@ -51,12 +51,12 @@ export class AuthServiceService {
       'http://localhost:3000/api/v1/auth/signup',
       userRegistrationDetails
     );
-    // console.log(res);
     res.subscribe((result) => {
       console.log('result', result);
       this.setToken(JSON.stringify(result));
       this.getToken();
     });
+    return res;
   }
   public setToken(token: string) {
     localStorage.setItem('token', token);

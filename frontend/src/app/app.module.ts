@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoursesContainerComponent } from './components/courses-container/courses-container.component';
 import { HomeComponent } from './learning/home/home.component';
 import { CourseDashboardComponent } from './learning/course-dashboard/course-dashboard.component';
+import { LearningModule } from './learning/learning.module';
 
 @NgModule({
   declarations: [
