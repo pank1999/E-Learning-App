@@ -1,0 +1,22 @@
+.video-container{
+    /* border: 2px solid black; */
+    /* background-color: rgb(32, 32, 32); */
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.play{
+    position: absolute;
+    /* padding:25px 20px;
+    text-align: center; */
+    height: 70px;
+    width: 70px;
+    cursor: pointer;
+}
+
+
+h2 span{
+    color: rgb(0, 149, 87);
+}

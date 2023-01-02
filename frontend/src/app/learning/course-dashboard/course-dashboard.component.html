@@ -1,24 +1,10 @@
 <div class="container">
     <div class="left">
-        <div class="left-top">
-            <h2>Course Name</h2>
-            <div class="video-container">
-                <video controls id="video" [autoplay]="autoplay" width="700" height="350"
-                    [style.visibility]="VideoVisibility">
-                    <source src="https://www.youtube.com/watch?v=zgSj6w3fBi4" />
-                    Browser not supported
-                </video>
-                <button class="play" [style.display]="PlayButtonVisibility" (click)="PlayButtonClicked()">play</button>
-            </div>
-        </div>
-        <div class="left-bottom">
-            <h3>Description</h3>
-            <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the
-                visual form of a document or a typeface without relying on meaningful content...</p>
-        </div>
+        <app-video></app-video>
     </div>
     <div class="right">
         <div class="right-top">
+            <p>welcome back {{Username}}</p>
             <div class="progress-bar">
                 <div class="progress">
                     <span>50%</span>
@@ -29,18 +15,19 @@
             <div class="playlist-container">
                 <div *ngFor="let section of coursePlayList">
                     <div class="playlist-item">
-                        <p>{{section.id}}</p>
+                        <div>
+                            <span>{{section.id}}</span><input type="checkbox" name="" id="">
+                        </div>
                         <p>{{section.Topic}}</p>
                         <i class="fa-solid fa-caret-down" style="cursor: pointer;"
                             (click)="ToggleSubTopics(section.id)"></i>
-                        <!-- <ng-template #upShowArrowIcon>
-                            <i class="fa-solid fa-caret-up" style="cursor: pointer;" (click)="ToggleSubTopics()"></i>
-                        </ng-template> -->
                     </div>
                     <div class="subTopics" *ngFor="let subTopics of section.Videos"
-                        (click)="PlaySelectedVideo(section.id,subTopics.id)"
-                        [style.display]="section.Toggle?'flex':'none'">
-                        <p>1</p>
+                        [style.display]="section.Toggle?'flex':'none'" (click)="playNext(section.id,subTopics.id)">
+                        <div>
+                            <span>{{subTopics.id}}</span>
+                            <input type="checkbox">
+                        </div>
                         <p>{{subTopics.subTopics}}</p>
                     </div>
                 </div>
