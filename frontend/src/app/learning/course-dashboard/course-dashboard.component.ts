@@ -1,5 +1,6 @@
 import { NONE_TYPE } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { coursePLaylist } from 'src/assets/DummyData/course-playlsit';
 @Component({
   selector: 'app-course-dashboard',
@@ -7,28 +8,28 @@ import { coursePLaylist } from 'src/assets/DummyData/course-playlsit';
   styleUrls: ['./course-dashboard.component.css'],
 })
 export class CourseDashboardComponent implements OnInit {
-  constructor() {}
-  VideoVisibility = 'hidden';
-  PlayButtonVisibility = 'block';
-  autoplay = false;
+  constructor(private router: Router) {}
   coursePlayList = coursePLaylist;
-  SetPlayerVideoUrl: string | undefined =
-    'https://www.youtube.com/watch?v=zgSj6w3fBi4';
-  ngOnInit(): void {}
-  PlayButtonClicked() {
-    this.VideoVisibility = 'visible';
-    this.PlayButtonVisibility = 'none';
-    this.autoplay = true;
+  Username = 'Pankaj1999';
+  url: string = '';
+  courseName = '';
+  ngOnInit(): void {
+    this.courseName = this.router.url.split('/')[3];
+    console.log(this.courseName);
   }
+
   ToggleSubTopics(id: number) {
     console.log('Toggle Sub Topics', id);
     this.coursePlayList[id - 1].Toggle = !coursePLaylist[id - 1].Toggle;
   }
+  playNext(sectionId: number, subTopicId: number) {
+    this.url = `learning/dashboard/${this.courseName}/video/${subTopicId}`;
 
-  PlaySelectedVideo(sectionId: number, subTopicId: number) {
-    const section = this.coursePlayList[sectionId - 1];
-    const subTopic = section.Videos.find((v) => v.id === subTopicId);
-    console.log(subTopic?.VideoUrl);
-    this.SetPlayerVideoUrl = subTopic?.VideoUrl;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([`/${this.url}`]).then(() => {
+        console.log(`After navigation I am on:${this.router.url}`);
+      });
+    });
+    console.log(this.url);
   }
 }

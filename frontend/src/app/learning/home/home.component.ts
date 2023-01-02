@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   courses,
   programmingLanguages,
@@ -9,7 +10,7 @@ import {
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
   leftArrowClicked = false;
@@ -25,5 +26,8 @@ export class HomeComponent implements OnInit {
     console.log('Move Right');
     this.rightArrowClicked = true;
     this.leftArrowClicked = false;
+  }
+  courseDashboard(course: string) {
+    this.router.navigate([`/learning/dashboard/${course}`]);
   }
 }

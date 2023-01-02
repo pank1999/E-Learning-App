@@ -15,6 +15,7 @@ import { CoursesContainerComponent } from './components/courses-container/course
 import { HomeComponent } from './learning/home/home.component';
 import { CourseDashboardComponent } from './learning/course-dashboard/course-dashboard.component';
 import { LearningModule } from './learning/learning.module';
+import { VideoComponent } from './learning/video/video.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { LearningModule } from './learning/learning.module';
     CoursesContainerComponent,
     HomeComponent,
     CourseDashboardComponent,
+    VideoComponent,
   ],
   imports: [
     BrowserModule,

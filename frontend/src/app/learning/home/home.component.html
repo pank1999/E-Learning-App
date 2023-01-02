@@ -13,9 +13,8 @@
                 <i class="fa-solid fa-caret-left" style="font-size: 30px;color: rgb(255, 187, 40);"></i>
             </div>
             <div class="courses-container">
-                <div routerLink='/learning/dashboard/1' class="courses-item"
-                    *ngFor="let item of programmingLanguageList">
-                    <img [src]="item.imgUrl" height="180px" width="180px" alt="">
+                <div class="courses-item" *ngFor="let item of programmingLanguageList">
+                    <img [src]="item.imgUrl" (click)="courseDashboard(item.title)" height="180px" width="180px" alt="">
                 </div>
             </div>
             <div (click)="MoveRight()">
@@ -33,7 +32,7 @@
             </div>
             <!-- <app-courses-container></app-courses-container> -->
             <div class="courses-container">
-                <div routerLink='/learning/dashboard/1' class="courses-item" *ngFor="let course of coursesList"
+                <div routerLink='/learning/dashboard' class="courses-item" *ngFor="let course of coursesList"
                     [style.background-color]="course.bgColor">
                     <h2>{{course.title}}</h2>
                 </div>

@@ -1,5 +1,9 @@
 export const programmingLanguages = [
-  { title: 'C++', imgUrl: '../../../../assets/image/Cpp.png', bgColor: 'blue' },
+  {
+    title: 'CPP',
+    imgUrl: '../../../../assets/image/Cpp.png',
+    bgColor: 'blue',
+  },
   {
     title: 'Python',
     imgUrl: './../../../assets/image/python.png',
