@@ -30,4 +30,7 @@ export class HomeComponent implements OnInit {
   courseDashboard(course: string) {
     this.router.navigate([`/learning/dashboard/${course}`]);
   }
+  course(course: any) {
+    this.router.navigate(['/course-details']);
+  }
 }

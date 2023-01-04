@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
 import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { CourseComponent } from './learning/course/course.component';
 import { HomeComponent } from './learning/home/home.component';
 import { LearningRoutingModule } from './learning/learning-routing.module';
 import { LoginComponent } from './pages/login/login.component';
@@ -18,6 +19,10 @@ const routes: Routes = [
     component: HomeComponent,
     pathMatch: 'full',
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'course-details',
+    component: CourseComponent,
   },
 ];
 

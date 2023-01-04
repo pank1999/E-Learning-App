@@ -1,5 +1,5 @@
 <div class="courses-container">
     <div class="courses-item" *ngFor="let item of List">
-        <img [src]="item.imgUrl" alt="">
+        <img [src]="item.imgUrl" (click)="course(item)" alt="">
     </div>
 </div>

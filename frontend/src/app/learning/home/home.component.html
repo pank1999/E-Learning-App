@@ -1,7 +1,15 @@
 <div class="container">
     <div class="live-class-banner">
+        <div class="banner-left">
+            <img src="./../../../assets/image/Profile image pankaj.jfif" alt="">
+        </div>
+        <div class="banner-center">
+            <h1>Live</h1>
+            <h2>C++</h2>
+            <h2>( class 01 ) at 7:00 PM</h2>
+        </div>
         <div class="banner-right">
-            <button>Start Now</button>
+            <button>Join Now</button>
         </div>
     </div>
     <div class="programming-section">
@@ -14,7 +22,7 @@
             </div>
             <div class="courses-container">
                 <div class="courses-item" *ngFor="let item of programmingLanguageList">
-                    <img [src]="item.imgUrl" (click)="courseDashboard(item.title)" height="180px" width="180px" alt="">
+                    <img [src]="item.imgUrl" (click)="course(item)" height="180px" width="180px" alt="">
                 </div>
             </div>
             <div (click)="MoveRight()">
@@ -24,7 +32,7 @@
     </div>
     <div class="popular-course-section">
         <div class="top">
-            <h3>Popular Courses</h3>
+            <h3>My Courses</h3>
         </div>
         <div class="bottom">
             <div (click)="MoveLeft()">
@@ -33,8 +41,10 @@
             <!-- <app-courses-container></app-courses-container> -->
             <div class="courses-container">
                 <div routerLink='/learning/dashboard' class="courses-item" *ngFor="let course of coursesList"
-                    [style.background-color]="course.bgColor">
+                    [style.background-color]="'black'">
+                    <app-progressbar progressBarWidth="170px" progress="70%"></app-progressbar>
                     <h2>{{course.title}}</h2>
+                    <button class="continue-btn" (click)="courseDashboard('courseName')">continue</button>
                 </div>
             </div>
             <div (click)="MoveRight()">

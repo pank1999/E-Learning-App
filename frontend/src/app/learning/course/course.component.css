@@ -1,0 +1,33 @@
+/*  */
+.container .container-top{
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+.container{
+    padding-top: 80px;
+    margin-inline: 50px;
+}
+.course-img-container img{
+   height: 200px;
+   width: 200px;
+   border-radius: 20px;
+}
+.course-details{
+    flex: 2;
+    justify-content: flex-start;
+    padding-left: 50px;
+}
+.enroll-now-container h3{
+    color: rgb(236, 177, 0);
+}
+.enroll-now-container button{
+    float: right;
+    margin-right:50px;
+    padding: 10px 30px;
+    border: none;
+    font-size: 20px;
+    background-color:rgb(33, 180, 143);
+    border-radius: 50px;
+    cursor: pointer;
+}

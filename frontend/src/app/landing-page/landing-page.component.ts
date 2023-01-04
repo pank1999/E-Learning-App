@@ -8,10 +8,10 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./landing-page.component.css'],
 })
 export class LandingPageComponent implements OnInit {
-  constructor(private route: Router) {}
+  constructor(private router: Router) {}
   isUserLoggedIn: boolean = false;
   ngOnInit(): void {
-    this.route.events.subscribe((val: any) => {
+    this.router.events.subscribe((val: any) => {
       if (val.url) {
         if (localStorage.getItem('token')) {
           this.isUserLoggedIn = true;

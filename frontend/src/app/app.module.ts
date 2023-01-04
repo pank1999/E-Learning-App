@@ -16,6 +16,7 @@ import { HomeComponent } from './learning/home/home.component';
 import { CourseDashboardComponent } from './learning/course-dashboard/course-dashboard.component';
 import { LearningModule } from './learning/learning.module';
 import { VideoComponent } from './learning/video/video.component';
+import { ProgressbarComponent } from './components/progressbar/progressbar.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { VideoComponent } from './learning/video/video.component';
     HomeComponent,
     CourseDashboardComponent,
     VideoComponent,
+    ProgressbarComponent,
   ],
   imports: [
     BrowserModule,

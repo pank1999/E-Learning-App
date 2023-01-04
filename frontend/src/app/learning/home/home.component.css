@@ -7,12 +7,36 @@
 .live-class-banner{
     display: flex;
     align-items: center;
-    background-image: url('./../../../assets/image/banner-1.png');
+    justify-content: space-around;
+    /* background-image: url('./../../../assets/image/banner-1.png'); */
+    background-color: rgb(236, 177, 0);
     height: 200px;
     width: 100%;
     border-radius: 20px;
 }
+.banner-left{
+    flex: 1;
+    margin-left: 10%;
+}
+.banner-left img{
+   height: 150px;
+   width: 150px;
+   border-radius: 100%;
+}
+.banner-center{
+    flex: 2;
+    display: flex;
+    align-items: center;
+}
+.banner-center h1{
+    color: white;
+    margin-right: 30px;
+}
+.banner-center h2{
+    margin-right: 30px;
+}
 .banner-right{
+    flex: 1;
     width: 100%;
 }
 .banner-right button{
@@ -22,12 +46,12 @@
     border: none;
     font-size: 20px;
     background-color:rgb(33, 180, 143);
-    border-radius: 15px;
+    border-radius: 50px;
     cursor: pointer;
         
 }
 .top{
-    padding-left: 60px;
+    padding-left: 10px;
 }
 .bottom{
     display: flex;
@@ -51,15 +75,16 @@ i{
 }
 .courses-item{
     min-height: 180px;
-    min-width: 180px;
-    max-width: 180px;
+    min-width: 200px;
+    max-width: 200px;
     min-height: 180px;
     border-radius: 10px;
     margin-right: 20px;
     background-color: rgb(33, 180, 143);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-around;
     cursor: pointer;
 
 }
@@ -73,3 +98,14 @@ i{
     transition: ease;
 }
 
+.continue-btn{
+    float: right;
+    margin-left: 80px;
+    margin-right:10px;
+    padding: 8px 15px;
+    border: none;
+    font-size: 13px;
+    background-color:rgb(236, 177, 0);
+    border-radius: 30px;
+    cursor: pointer;
+}

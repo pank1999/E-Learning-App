@@ -10,3 +10,6 @@ a{
     text-decoration: none;
     color: black;
 }
+.container{
+    padding-top: 80px;
+}

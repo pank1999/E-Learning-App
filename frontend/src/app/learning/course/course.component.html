@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="container-top">
+        <div class="course-img-container">
+            <img src="./../../../assets/image/C++.png" alt="">
+        </div>
+        <div class="course-details">
+            <h2>C++ Programming</h2>
+            <p>By Pankaj Pandey</p>
+            <p>Course Duration: 4 weeks</p>
+        </div>
+        <div class="enroll-now-container">
+            <h3> <i class="fa fa-certificate" aria-hidden="true" style="color: teal; margin-right: 20px;"></i>Course
+                Completion Certificate
+            </h3>
+            <button *ngIf="enrollStatus==false else elseBlock" (click)="enroll('courseName')">Enroll Now</button>
+            <ng-template #elseBlock>
+                <button (click)="courseDashboard('courseName')">Start Now</button>
+            </ng-template>
+        </div>
+    </div>
+    <div class="container-bottom">
+        <h3>Course Details</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book.</p>
+        <div class="course-section">
+            <ul>
+                <li>Introduction to Programming </li>
+                <li>Compiler vs Interpreter</li>
+                <li>Tokens in Programming</li>
+                <li>Conditional Statements</li>
+                <li>Looping Statements</li>
+            </ul>
+        </div>
+    </div>
+</div>
