@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AgoraRTCService } from 'src/app/services/agoraRTC.service';
 import {
   courses,
   programmingLanguages,
@@ -10,7 +11,7 @@ import {
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private agoraRTC: AgoraRTCService) {}
 
   ngOnInit(): void {}
   leftArrowClicked = false;
@@ -29,6 +30,11 @@ export class HomeComponent implements OnInit {
   }
   courseDashboard(course: string) {
     this.router.navigate([`/learning/dashboard/${course}`]);
+  }
+  async JoinLiveClass(course: string) {
+    this.router.navigate([`learning/live/${course}`]);
+    // await this.agoraRTC.audienceIsChecked();
+    // await this.agoraRTC.joinBtnClicked();
   }
   course(course: any) {
     this.router.navigate(['/course-details']);

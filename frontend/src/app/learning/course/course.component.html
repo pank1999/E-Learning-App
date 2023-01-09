@@ -12,7 +12,7 @@
             <h3> <i class="fa fa-certificate" aria-hidden="true" style="color: teal; margin-right: 20px;"></i>Course
                 Completion Certificate
             </h3>
-            <button *ngIf="enrollStatus==false else elseBlock" (click)="enroll('courseName')">Enroll Now</button>
+            <button (click)="courseDashboard('courseName')">Enroll Now</button>
             <ng-template #elseBlock>
                 <button (click)="courseDashboard('courseName')">Start Now</button>
             </ng-template>

@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="top-container common-container">
+        <div class="top-left">
+            <h3>Lecture No 1</h3>
+        </div>
+        <div class="top-right">
+            <span style="margin-right: 5px;">{{hour}}h {{minutes}}m {{seconds}}s</span>
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <button class="go-live-btn" (click)="join()">Join</button>
+            <button class="go-live-btn" (click)="goLive()">Go Live</button>
+            <button type="button" class="leave" (click)="leave()" id="leave">Leave</button>
+        </div>
+    </div>
+    <div class="bottom-container common-container">
+        <div class="b-left common-container">
+            <div class="live-stream-container" #div>
+                <div class="live"></div>
+            </div>
+            <div class="controls">
+                <i class="fa fa-video-camera" aria-hidden="true"></i>
+                <i class="fa fa-microphone" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="b-right common-container">
+            <div class="chat-container">
+                <div class="chat-top">
+                    <div class="new-chat-item common-container">
+                        <div class="text-message">
+                            <p>Hello guys can you please share the link of previous class</p>
+                        </div>
+                        <div class="user">
+                            <img src="./../../../assets/image/Profile image pankaj.jfif" alt="img">
+
+                        </div>
+                    </div>
+                    <div class="new-chat-item common-container">
+                        <div class="text-message">
+                            <p>Hello guys</p>
+                        </div>
+                        <div class="user">
+                            <img src="./../../../assets/image/Profile image pankaj.jfif" alt="img">
+
+                        </div>
+                    </div>
+                    <div class="new-chat-item common-container">
+                        <div class="text-message">
+                            <p>Hello guys</p>
+                        </div>
+                        <div class="user">
+                            <img src="./../../../assets/image/Profile image pankaj.jfif" alt="img">
+
+                        </div>
+                    </div>
+                    <div class="new-chat-item common-container">
+                        <div class="text-message">
+                            <p>Hello guys</p>
+                        </div>
+                        <div class="user">
+                            <img src="./../../../assets/image/Profile image pankaj.jfif" alt="img">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-bottom">
+                    <div class="input-container">
+                        <input type="text" placeholder="enter message here ...">
+                        <i class="fa fa-paper-plane" aria-hidden="true" style="font-size: 20px;margin-left: 10px;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
