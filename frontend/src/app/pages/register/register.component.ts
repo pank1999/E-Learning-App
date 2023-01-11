@@ -24,7 +24,8 @@ export class RegisterComponent implements OnInit {
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
     dob: new FormControl([Validators.required]),
-    gender: new FormControl('Male', [Validators.required]),
+    gender: new FormControl('Select', [Validators.required]),
+    role: new FormControl('Select', [Validators.required]),
     password: new FormControl('', [Validators.required]),
   });
 
@@ -47,6 +48,9 @@ export class RegisterComponent implements OnInit {
   }
   get userGenderValidator() {
     return this.registerForm.get('gender');
+  }
+  get userRoleValidator() {
+    return this.registerForm.get('role');
   }
   get userPasswordValidator() {
     return this.registerForm.get('password');

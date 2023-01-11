@@ -3,6 +3,7 @@ export interface RegisterUser {
   EmailId: string;
   DOB: Date;
   Gender: string;
+  Role: string;
   Password: string;
 }
 
@@ -10,3 +11,9 @@ export interface LoginUser {
   EmailId: string;
   Password: string;
 }
+
+export interface LocalLoggedInUser {
+  user: LoginUser;
+  token: string;
+}
+export interface LoggedInUserDetails {}

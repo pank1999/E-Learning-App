@@ -1,8 +1,7 @@
 .container{
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
-    margin-top: 30px;
  }
  .container-left{
      flex: 1;
@@ -20,6 +19,7 @@
      /* border: 1px solid black; */
      padding: 10px 0px;
      border-radius: 30px;
+     margin: 50px 0px;
  }
  .container-right h2{
      margin-bottom: 20px;

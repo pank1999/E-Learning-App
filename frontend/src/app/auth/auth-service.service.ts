@@ -2,13 +2,19 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as CryptoJs from 'crypto-js';
 import { Observable } from 'rxjs';
-import { LoginUser, RegisterUser } from '../interface/user.types';
+import { localStorageKeys } from '../constants';
+import {
+  LocalLoggedInUser,
+  LoginUser,
+  RegisterUser,
+} from '../interface/user.types';
+import { UserService } from '../services/user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthServiceService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private userService: UserService) {}
   SecretKey = 'pankajSecureKey';
   loggedInUser$: Observable<any> = new Observable();
 
@@ -36,7 +42,11 @@ export class AuthServiceService {
     this.loggedInUser$.subscribe(
       (result) => {
         console.log(result);
-        this.setToken(JSON.stringify(result));
+        this.userService.set(
+          localStorageKeys.LOGGED_IN_USER,
+          JSON.stringify(result)
+        );
+        // this.userService.get(localStorageKeys.TOKEN);
       },
       (error) => {
         console.log(error);
@@ -53,19 +63,11 @@ export class AuthServiceService {
     );
     res.subscribe((result) => {
       console.log('result', result);
-      this.setToken(JSON.stringify(result));
-      this.getToken();
+      this.userService.set(
+        localStorageKeys.REGISTERED_USER,
+        JSON.stringify(result)
+      );
     });
     return res;
-  }
-  public setToken(token: string) {
-    localStorage.setItem('token', token);
-  }
-  public getToken() {
-    const data = localStorage.getItem('token');
-    const parsedData = data && JSON.parse(data);
-    const token = parsedData.token;
-    console.log('token', token);
-    return token;
   }
 }

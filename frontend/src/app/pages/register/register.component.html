@@ -42,6 +42,17 @@
                         required *</span>
                 </div>
                 <div class="form-item">
+                    <select name="role" formControlName="role" id="" placeholder="Select user role">
+                        <option value="Faculty">Faculty</option>
+                        <option value="Student">Student</option>
+
+                    </select>
+                    <span class="error"
+                        *ngIf="userGenderValidator && userGenderValidator.invalid && userGenderValidator.touched">this
+                        field is
+                        required *</span>
+                </div>
+                <div class="form-item">
                     <input type="password" formControlName="password" id="" placeholder="Password">
                     <span class="error"
                         *ngIf="userPasswordValidator && userPasswordValidator.invalid && userPasswordValidator.touched">this

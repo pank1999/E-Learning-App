@@ -4,11 +4,16 @@
             <h3>Lecture No 1</h3>
         </div>
         <div class="top-right">
-            <span style="margin-right: 5px;">{{hour}}h {{minutes}}m {{seconds}}s</span>
+            <span style="margin-right: 5px;" *ngIf="loggedInUser.role==='Faculty'">{{hour}}h
+                {{minutes}}m {{seconds}}s</span>
             <i class="fa fa-clock-o" aria-hidden="true"></i>
             <i class="fa fa-users" aria-hidden="true"></i>
-            <button class="go-live-btn" (click)="join()">Join</button>
-            <button class="go-live-btn" (click)="goLive()">Go Live</button>
+            <div *ngIf="loggedInUser.role==='Student' else elseBlock">
+                <button class="go-live-btn" (click)="join()">Join</button>
+            </div>
+            <ng-template #elseBlock>
+                <button class="go-live-btn" (click)="goLive()">Go Live</button>
+            </ng-template>
             <button type="button" class="leave" (click)="leave()" id="leave">Leave</button>
         </div>
     </div>

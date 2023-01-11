@@ -17,6 +17,7 @@ import { CourseDashboardComponent } from './learning/course-dashboard/course-das
 // import { LearningModule } from './learning/learning.module';
 import { VideoComponent } from './learning/video/video.component';
 import { ProgressbarComponent } from './components/progressbar/progressbar.component';
+import { LiveClassDashboardComponent } from './learning/live-class-dashboard/live-class-dashboard.component';
 // import { AgoraRTCService } from './services/agoraRTC.service';
 
 @NgModule({
@@ -31,6 +32,7 @@ import { ProgressbarComponent } from './components/progressbar/progressbar.compo
     CourseDashboardComponent,
     VideoComponent,
     ProgressbarComponent,
+    LiveClassDashboardComponent,
   ],
   imports: [
     BrowserModule,

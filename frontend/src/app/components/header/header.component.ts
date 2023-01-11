@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { localStorageKeys } from 'src/app/constants';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.route.events.subscribe((val: any) => {
       if (val.url) {
-        if (localStorage.getItem('token')) {
+        if (localStorage.getItem(localStorageKeys.LOGGED_IN_USER)) {
           this.User = true;
         }
       }
@@ -22,7 +23,7 @@ export class HeaderComponent implements OnInit {
   async logout() {
     console.log('i am clicked');
     this.User = false;
-    await localStorage.removeItem('token');
+    await localStorage.removeItem(localStorageKeys.LOGGED_IN_USER);
     this.route.navigate(['/']);
   }
 }

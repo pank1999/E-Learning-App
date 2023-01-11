@@ -5,8 +5,9 @@ import {
   Renderer2,
   ViewChild,
 } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { localStorageKeys } from 'src/app/constants';
 import { AgoraRTCService } from 'src/app/services/agoraRTC.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-live-class-dashboard',
@@ -14,11 +15,18 @@ import { AgoraRTCService } from 'src/app/services/agoraRTC.service';
   styleUrls: ['./live-class-dashboard.component.css'],
 })
 export class LiveClassDashboardComponent implements OnInit {
-  constructor(private renderer: Renderer2, private agoraRTC: AgoraRTCService) {}
+  constructor(
+    private renderer: Renderer2,
+    private agoraRTC: AgoraRTCService,
+    private UserService: UserService
+  ) {
+    this.UserService.getUserDetails();
+  }
   @ViewChild('div') div: ElementRef = this.renderer.createElement('div');
   ngOnInit(): void {
     this.agoraRTC.startBasicCall();
   }
+  loggedInUser = this.UserService.get(localStorageKeys.USER_DETAILS);
   hour = 0;
   minutes = 0;
   seconds = 0;

@@ -34,7 +34,7 @@ export class AgoraRTCService {
     channel: 'PCS',
     // Pass your temp token here.
     token:
-      '007eJxTYBB5qVfLsePec3XhbM6HMy32V03lizXMX7zjavHPnWYfs64qMBgbmyclm6eZpVlYppkYJZkkmRumJKUYpCUbpKWaJJomCjnuSW4IZGSY6SPFwAiFID4zQ4BzMAMDAEEzHuU=',
+      '007eJxTYFglqWWq/UDP7koNY+9LddvwvEVrks9v+VrwNCDI2OCi7DcFBmNj86Rk8zSzNAvLNBOjJJMkc8OUpBSDtGSDtFSTRNNE1r17kxsCGRlm5W5lZGSAQBCfmSHAOZiBAQAANB7i',
     // Set the user ID.
     uid: '0',
     // Set the user role

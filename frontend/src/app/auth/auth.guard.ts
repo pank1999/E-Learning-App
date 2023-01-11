@@ -6,6 +6,7 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { localStorageKeys } from '../constants';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,7 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (localStorage.getItem('token')) {
+    if (localStorage.getItem(localStorageKeys.LOGGED_IN_USER)) {
       return true;
     }
     return false;
