@@ -1,5 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Sequelize } from 'sequelize-typescript';
+import { Course } from 'src/modules/courses/models/course.entity';
+// import { UsersCourse } from 'src/modules/courses/models/users-courses.entity';
 import { User } from 'src/modules/users/user.entity';
 import { SEQUELIZE, DEVELOPMENT, TEST, PRODUCTION } from '../constants';
 import { databaseConfig } from './database.config';
@@ -23,7 +25,7 @@ export const databaseProviders = [
           config = databaseConfig.development;
       }
       const sequelize = new Sequelize(config);
-      sequelize.addModels([User]);
+      sequelize.addModels([User, Course]);
       await sequelize.sync();
       return sequelize;
     }
