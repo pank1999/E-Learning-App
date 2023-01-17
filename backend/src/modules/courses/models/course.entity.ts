@@ -1,5 +1,13 @@
-import { Table, Column, Model, DataType } from 'sequelize-typescript';
-import { CourseSection } from '../interface/course-section.interface';
+import {
+  Table,
+  Column,
+  Model,
+  DataType,
+  ForeignKey,
+  HasMany
+} from 'sequelize-typescript';
+import { CourseSection } from './course-section.entity';
+import { UsersCourse } from './users-courses.entity';
 
 @Table
 export class Course extends Model<Course> {
@@ -30,11 +38,8 @@ export class Course extends Model<Course> {
   })
   category: string;
 
-  @Column({
-    type: DataType.ARRAY(DataType.JSON),
-    allowNull: false
-  })
-  section: CourseSection[];
+  @HasMany(() => CourseSection)
+  sections: CourseSection[];
 
   @Column({
     type: DataType.STRING,
@@ -53,4 +58,8 @@ export class Course extends Model<Course> {
     allowNull: false
   })
   fees: string;
+
+  @ForeignKey(() => UsersCourse)
+  @Column
+  userId: number;
 }
