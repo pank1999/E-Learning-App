@@ -6,6 +6,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { CourseComponent } from './learning/course/course.component';
 import { HomeComponent } from './learning/home/home.component';
 import { LearningRoutingModule } from './learning/learning-routing.module';
+import { DashboardComponent } from './modules/faculty-dashboard/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'course-details',
     component: CourseComponent,
+  },
+  {
+    path: 'faculty-dashboard',
+    component: DashboardComponent,
   },
 ];
 

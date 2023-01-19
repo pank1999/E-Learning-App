@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
   async loginUser(user: any) {
     console.log(user);
     await this.authService.login(user);
-    // window.location.reload();
     await this.router.navigate(['/learning']);
   }
 
