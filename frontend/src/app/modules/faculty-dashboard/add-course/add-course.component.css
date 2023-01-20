@@ -1,0 +1,61 @@
+.add-course-container{
+    padding-left: 10%;
+}
+.form-container{
+    display:flex ;
+    align-items: center;
+    justify-content:space-between;
+    max-width: 1000px;
+}
+.form-item{
+    width: 100%;
+    margin-bottom: 10px;
+}
+input[type="text"]{
+    height: 8vh;
+    width: 30vw;
+    border-radius: 5px;
+    border: none;
+}
+label{
+    font-family: 'Poppins';
+    font-size: 0.8rem;
+    padding-bottom:10px;
+}
+select{
+    height: 8vh;
+    width: 30vw;
+    border-radius: 5px;
+    border: none;
+    font-size: 0.8rem;
+    padding-inline: 10px;
+}
+option{
+    font-size: 0.8rem;
+}
+.img-preview{
+    height: 30vh;
+    width: 30vw;
+    background-color: #4FC198;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.form-left{
+    flex: 1;
+    justify-content: flex-start;
+    padding-right: 10%;
+}
+.form-right{
+    flex: 1;
+    justify-content: flex-start;
+}
+button{
+    padding: 1rem 3rem;
+    border-radius: 10px;
+    background-color:#FFAA05 ;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 30vw;
+    margin-top: 50px;
+}

@@ -1,0 +1,50 @@
+.right{
+    padding-inline: 1em ;
+    flex: 11;
+    /* flex-direction: column; */
+}
+.right .top{
+    height: 5vh;
+    padding-left: 1em;
+    display: flex;
+    justify-content: space-between;
+}
+.right .bottom{
+height: 64vh;
+}
+.right .course-container{
+    /* padding-top: 1em; */
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /* background-color: aqua; */
+}
+.course-item{
+    height: 25vh;
+    max-height: 300px;
+    width: 210px;
+    background-color: rgb(224, 224, 224);
+    margin: 1em;
+    border-radius: 5px;
+    position: relative;
+}
+.create-btn{
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color:#FFAA05 ;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.continue-btn{
+    padding: 5px 10px;
+    border-radius: 50px;
+    background-color:#4FC198 ;
+    border: none;
+    font-size: 1rem;
+    position: absolute;
+    bottom: 10px;
+    margin-left: 110px;
+    cursor: pointer;
+
+}
