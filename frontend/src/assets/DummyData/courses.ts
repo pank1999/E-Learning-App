@@ -20,6 +20,21 @@ export const programmingLanguages = [
     imgUrl: './../../../assets/image/Javsscript.png',
     bgColor: 'orange',
   },
+  {
+    title: 'PHP',
+    imgUrl: './../../../assets/image/php.png',
+    bgColor: 'skyblue',
+  },
+  {
+    title: 'Javascript',
+    imgUrl: './../../../assets/image/Javsscript.png',
+    bgColor: 'orange',
+  },
+  {
+    title: 'Javascript',
+    imgUrl: './../../../assets/image/Javsscript.png',
+    bgColor: 'orange',
+  },
 ];
 export const courses = [
   { title: 'ML', imgUrl: './image/C++.png', bgColor: 'blue' },
@@ -31,4 +46,11 @@ export const courses = [
     bgColor: 'skyblue',
   },
   { title: 'Blockchain', imgUrl: './image/C++.png', bgColor: 'orange' },
+  { title: 'Web-Development', imgUrl: './image/C++.png', bgColor: 'yellow' },
+  { title: 'AI', imgUrl: './image/C++.png', bgColor: 'red' },
+  {
+    title: 'Android Development',
+    imgUrl: './image/C++.png',
+    bgColor: 'skyblue',
+  },
 ];

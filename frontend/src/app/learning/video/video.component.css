@@ -5,7 +5,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+   
+}
+#video{
+    height: 50vh;
+    width: 60vw;
 }
 .play{
     position: absolute;
