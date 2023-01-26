@@ -1,15 +1,20 @@
 .add-course-container{
     padding-left: 10%;
+    height: 100vh;
 }
 .form-container{
     display:flex ;
     align-items: center;
-    justify-content:space-between;
+    justify-content:center;
     max-width: 1000px;
+
 }
 .form-item{
-    width: 100%;
+    /* width: 100%; */
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
 }
 input[type="text"]{
     height: 8vh;
@@ -41,21 +46,23 @@ option{
     margin-bottom: 20px;
 }
 .form-left{
-    flex: 1;
+    /* flex: 1; */
     justify-content: flex-start;
-    padding-right: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 .form-right{
     flex: 1;
     justify-content: flex-start;
 }
 button{
-    padding: 1rem 3rem;
+    padding: 0.8rem 2rem;
     border-radius: 10px;
     background-color:#FFAA05 ;
     border: none;
     font-size: 1rem;
     cursor: pointer;
     width: 30vw;
-    margin-top: 50px;
+    margin-top: 1.8rem;
 }

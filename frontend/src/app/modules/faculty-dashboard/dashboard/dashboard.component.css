@@ -5,12 +5,16 @@
 }
 .flex{
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-between;
 }
 .left{
     flex: 1;
     max-width: 100px;
+}
+span{
+    font-weight: 300;
+    margin-left: 1em;
 }
 .side-bar{
     height: 70vh;

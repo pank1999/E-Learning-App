@@ -1,5 +1,5 @@
 <div class="add-course-container">
-    <!-- <h3>Add Course</h3> -->
+    <p>Add Course</p>
     <form [formGroup]="courseForm" #form="ngForm" (ngSubmit)="onSubmit(form)">
         <div class="form-container">
             <div class="form-left">
@@ -24,25 +24,20 @@
                     <input type="text" formControlName="author">
                 </div>
                 <div class="form-item">
-                    <!-- <label for="">Fees</label> -->
+                    <label for="">Fees</label>
                     <select name="fees" id="fees" formControlName="fees">
                         <option value="Programming Language">Free</option>
                         <option value="Web Development">Paid</option>
                     </select>
                 </div>
 
-            </div>
-            <div class="form-right">
-                <div class="img-preview">
-                    <!-- <img src="./../../../../assets/image/Javsscript.png" alt=""> -->
-                </div>
                 <div class="form-item">
-                    <input type="file" name="img" formControlName="img">
+                    <button>next</button>
                 </div>
-                <div class="form-item">
-                    <button>submit</button>
-                </div>
+
             </div>
+            <!-- <div class="form-right">
+            </div> -->
         </div>
     </form>
 </div>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AddedCourseDetails } from '../interfaces/course.interface';
+import { AddCourseService } from '../services/add-course.service';
 
 @Component({
   selector: 'app-add-course',
@@ -7,7 +10,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./add-course.component.css'],
 })
 export class AddCourseComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private addCourseService: AddCourseService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
   courseForm = new FormGroup({
@@ -16,10 +22,14 @@ export class AddCourseComponent implements OnInit {
     category: new FormControl(),
     author: new FormControl(),
     fees: new FormControl(),
-    img: new FormControl(),
   });
 
-  onSubmit(form: any) {
+  async onSubmit(form: any) {
     console.log(form.value);
+    const addedCourseDetails: AddedCourseDetails =
+      await this.addCourseService.addCourse(form.value);
+    this.router.navigateByUrl(
+      `faculty-dashboard/add-course-image/${addedCourseDetails.id}`
+    );
   }
 }

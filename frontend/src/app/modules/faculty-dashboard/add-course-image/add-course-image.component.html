@@ -1,0 +1,9 @@
+<div class="add-image-container">
+    <div class="form-container">
+        <div class="img-preview">
+            <img [src]="imageSrc" alt="img">
+        </div>
+        <input type="file" id="file" name="img" (change)="onFileChange($event)">
+        <button (click)="submit()">Submit</button>
+    </div>
+</div>
