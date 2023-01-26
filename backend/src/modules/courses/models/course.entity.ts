@@ -1,11 +1,14 @@
 import {
-  Table,
+  BelongsTo,
+  BelongsToMany,
   Column,
-  Model,
   DataType,
-  ForeignKey,
-  HasMany
+  HasMany,
+  Model,
+  Table
 } from 'sequelize-typescript';
+import { User } from 'src/modules/users/user.entity';
+import { CourseImage } from './course-image.entity';
 import { CourseSection } from './course-section.entity';
 import { UsersCourse } from './users-courses.entity';
 
@@ -17,11 +20,8 @@ export class Course extends Model<Course> {
   })
   name: string;
 
-  @Column({
-    type: DataType.STRING,
-    allowNull: false
-  })
-  img: string;
+  @HasMany(() => CourseImage)
+  image: CourseImage;
 
   @Column({
     type: DataType.STRING,
@@ -59,7 +59,8 @@ export class Course extends Model<Course> {
   })
   fees: string;
 
-  @ForeignKey(() => UsersCourse)
-  @Column
-  userId: number;
+  @BelongsToMany(() => User, {
+    through: { model: () => UsersCourse }
+  })
+  users: User[];
 }

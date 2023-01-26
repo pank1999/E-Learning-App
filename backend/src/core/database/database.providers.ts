@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Sequelize } from 'sequelize-typescript';
+import { CourseImage } from 'src/modules/courses/models/course-image.entity';
 import { CourseSection } from 'src/modules/courses/models/course-section.entity';
 import { Course } from 'src/modules/courses/models/course.entity';
 import { UsersCourse } from 'src/modules/courses/models/users-courses.entity';
@@ -28,7 +29,14 @@ export const databaseProviders = [
           config = databaseConfig.development;
       }
       const sequelize = new Sequelize(config);
-      sequelize.addModels([User, Course, CourseSection, Video, UsersCourse]);
+      sequelize.addModels([
+        User,
+        Course,
+        CourseSection,
+        Video,
+        UsersCourse,
+        CourseImage
+      ]);
       await sequelize.sync();
       return sequelize;
     }

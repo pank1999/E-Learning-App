@@ -1,5 +1,14 @@
 /* eslint-disable prettier/prettier */
-import { Table, Column, Model, DataType } from 'sequelize-typescript';
+import {
+  Table,
+  Column,
+  Model,
+  DataType,
+  BelongsTo,
+  BelongsToMany
+} from 'sequelize-typescript';
+import { Course } from '../courses/models/course.entity';
+import { UsersCourse } from '../courses/models/users-courses.entity';
 
 @Table
 export class User extends Model<User> {
@@ -41,4 +50,9 @@ export class User extends Model<User> {
     allowNull: false
   })
   dob: Date;
+
+  @BelongsToMany(() => Course, {
+    through: { model: () => UsersCourse }
+  })
+  courses: Course[];
 }

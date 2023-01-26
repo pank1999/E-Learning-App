@@ -1,15 +1,22 @@
-import { Table, Column, Model, DataType, HasMany } from 'sequelize-typescript';
+import {
+  Table,
+  Column,
+  Model,
+  DataType,
+  HasMany,
+  ForeignKey
+} from 'sequelize-typescript';
+import { User } from 'src/modules/users/user.entity';
 import { UsersCourses } from '../interface/users-courses.interface';
 import { Course } from './course.entity';
 
 @Table
 export class UsersCourse extends Model<UsersCourse> {
-  @Column({
-    type: DataType.STRING,
-    allowNull: false
-  })
+  @ForeignKey(() => User)
+  @Column
   userId: number;
 
-  @HasMany(() => Course)
-  courses: UsersCourses[];
+  @ForeignKey(() => Course)
+  @Column
+  courseId: number;
 }
