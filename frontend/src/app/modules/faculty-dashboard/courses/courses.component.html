@@ -8,26 +8,12 @@
                 create
             </button>
         </div>
-
     </div>
     <div class="bottom">
         <div class="course-container">
-            <div class="course-item">
-                <button class="continue-btn">continue</button>
-            </div>
-            <div class="course-item">
-                <button class="continue-btn">continue</button>
-            </div>
-            <div class="course-item">
-                <button class="continue-btn">continue</button>
-            </div>
-            <div class="course-item">
-                <button class="continue-btn">continue</button>
-            </div>
-            <div class="course-item">
-                <button class="continue-btn">continue</button>
-            </div>
-            <div class="course-item">
+            <div class="course-item" *ngFor="let course of courses">
+                <!-- <app-progressbar progressBarWidth="20vw" [progress]="course.progress.toString()"></app-progressbar> -->
+                <p>{{course.name}}</p>
                 <button class="continue-btn">continue</button>
             </div>
         </div>

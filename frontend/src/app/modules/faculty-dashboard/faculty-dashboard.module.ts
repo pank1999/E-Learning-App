@@ -9,6 +9,7 @@ import { AddCourseService } from './services/add-course.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AddCourseImageComponent } from './add-course-image/add-course-image.component';
 import { AddCourseImageService } from './services/add-course-image.service';
+import { CoursesService } from './services/courses.service';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,6 @@ import { AddCourseImageService } from './services/add-course-image.service';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [AddCourseService, AddCourseImageService],
+  providers: [AddCourseService, AddCourseImageService, CoursesService],
 })
 export class FacultyDashboardModule {}

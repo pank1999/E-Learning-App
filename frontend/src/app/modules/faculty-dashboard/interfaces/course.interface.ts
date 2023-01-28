@@ -14,4 +14,7 @@ export interface CourseDetails {
   category: string;
   author: string;
   fees: string;
+  isPublished: boolean;
+  progress: number;
+  facultyId: number;
 }

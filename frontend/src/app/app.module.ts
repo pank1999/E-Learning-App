@@ -19,6 +19,7 @@ import { VideoComponent } from './learning/video/video.component';
 import { ProgressbarComponent } from './components/progressbar/progressbar.component';
 import { LiveClassDashboardComponent } from './learning/live-class-dashboard/live-class-dashboard.component';
 import { FacultyDashboardModule } from './modules/faculty-dashboard/faculty-dashboard.module';
+import { CoursesService } from './modules/faculty-dashboard/services/courses.service';
 // import { AgoraRTCService } from './services/agoraRTC.service';
 
 @NgModule({
@@ -42,9 +43,9 @@ import { FacultyDashboardModule } from './modules/faculty-dashboard/faculty-dash
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    FacultyDashboardModule,
+    // FacultyDashboardModule,
   ],
-  providers: [AuthServiceService],
+  providers: [AuthServiceService, CoursesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
