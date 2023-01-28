@@ -14,7 +14,7 @@ export class CoursesService {
   }
 
   public async getAll(): Promise<Course[]> {
-    console.log('all courses');
+    console.log('all courses ');
     return await this.coursesRepository.findAll<Course>();
   }
 
@@ -23,10 +23,26 @@ export class CoursesService {
     return await this.coursesRepository.findOne<Course>({ where: { id: Id } });
   }
 
+  // get all course by published status true
+  public async getAllWhereIsPublished(isPublished: boolean): Promise<Course[]> {
+    console.log('all courses by isPublished status', isPublished);
+    return await this.coursesRepository.findAll<Course>({
+      where: { isPublished }
+    });
+  }
+
+  // get all course by category and published status true
   public async getAllWhere(category: string): Promise<Course[]> {
     console.log('all courses by category', category);
     return await this.coursesRepository.findAll<Course>({
-      where: { category }
+      where: { category, isPublished: true }
+    });
+  }
+  // get all course by faculty id
+  public async getAllByFacultyId(facultyId: number): Promise<Course[]> {
+    console.log('all courses by faculty id', facultyId);
+    return await this.coursesRepository.findAll<Course>({
+      where: { facultyId: facultyId }
     });
   }
 }
