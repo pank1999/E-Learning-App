@@ -55,6 +55,12 @@ export class CoursesController {
   public async getAllCourses() {
     return await this.courseService.getAll();
   }
+  @Get('faculty/:facultyId')
+  public async getAllByFacultyId(@Param('facultyId') facultyId: number) {
+    console.log({ facultyId });
+    return await this.courseService.getAllByFacultyId(facultyId);
+  }
+
   @Get('/category/:category')
   public async getAllByCategory(@Param('category') category: string) {
     return await this.courseService.getAllWhere(category);

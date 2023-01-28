@@ -22,11 +22,15 @@ height: 64vh;
 .course-item{
     height: 25vh;
     max-height: 300px;
-    width: 210px;
+    width: 18vw;
     background-color: rgb(224, 224, 224);
     margin: 1em;
     border-radius: 5px;
     position: relative;
+}
+.course-item p{
+    text-align: center;
+    margin-top: 3rem;
 }
 .create-btn{
     padding: 10px 20px;

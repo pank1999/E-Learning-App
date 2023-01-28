@@ -1,16 +1,6 @@
-import {
-  BelongsTo,
-  BelongsToMany,
-  Column,
-  DataType,
-  HasMany,
-  Model,
-  Table
-} from 'sequelize-typescript';
-import { User } from 'src/modules/users/user.entity';
+import { Column, DataType, HasMany, Model, Table } from 'sequelize-typescript';
 import { CourseImage } from './course-image.entity';
 import { CourseSection } from './course-section.entity';
-import { UsersCourse } from './users-courses.entity';
 
 @Table
 export class Course extends Model<Course> {
@@ -59,8 +49,17 @@ export class Course extends Model<Course> {
   })
   fees: string;
 
-  @BelongsToMany(() => User, {
-    through: { model: () => UsersCourse }
-  })
-  users: User[];
+  @Column
+  facultyId: number;
+
+  @Column
+  isPublished: boolean;
+
+  @Column
+  progress: number;
+
+  // @BelongsToMany(() => User, {
+  //   through: { model: () => UsersCourse }
+  // })
+  // users: User[];
 }

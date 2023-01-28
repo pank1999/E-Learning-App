@@ -19,10 +19,15 @@ export class AddCourseService {
     fees: '',
   };
   public async addCourse(courseDetails: CourseDetails) {
-    console.log(courseDetails);
+    console.log({
+      ...courseDetails,
+      isPublished: false,
+      progress: 10,
+      facultyId: 1,
+    });
     this.AddedCourseDetails$ = this.http.post<CourseDetails>(
       'http://localhost:3000/api/v1/course/add-course',
-      courseDetails
+      { ...courseDetails, isPublished: false, progress: 10, facultyId: 1 }
     );
     this.AddedCourseDetails$.subscribe((result) => {
       this.addedCourseDetails = result;
