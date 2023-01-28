@@ -28,6 +28,6 @@ export class AddCourseImageComponent implements OnInit {
   }
   submit() {
     const courseId = this.router.url.split('/')[3];
-    this.addCourseImageService.addCourseImage(this.file, parseInt(courseId));
+    this.addCourseImageService.addCourseImage(this.file, parseInt('1'));
   }
 }
