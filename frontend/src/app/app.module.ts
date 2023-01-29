@@ -21,6 +21,9 @@ import { LiveClassDashboardComponent } from './learning/live-class-dashboard/liv
 import { FacultyDashboardModule } from './modules/faculty-dashboard/faculty-dashboard.module';
 import { CoursesService } from './modules/faculty-dashboard/services/courses.service';
 import { AddCourseService } from './modules/faculty-dashboard/services/add-course.service';
+import {  MatDialogModule } from '@angular/material/dialog';
+import { AddVideoService } from './modules/faculty-dashboard/services/add-video.service';
+import { CourseComponent } from './modules/faculty-dashboard/course/course.component';
 // import { AgoraRTCService } from './services/agoraRTC.service';
 
 @NgModule({
@@ -36,6 +39,7 @@ import { AddCourseService } from './modules/faculty-dashboard/services/add-cours
     VideoComponent,
     ProgressbarComponent,
     LiveClassDashboardComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +48,10 @@ import { AddCourseService } from './modules/faculty-dashboard/services/add-cours
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    MatDialogModule,
     // FacultyDashboardModule,
   ],
-  providers: [AuthServiceService, CoursesService, AddCourseService],
+  providers: [AuthServiceService, CoursesService, AddCourseService,AddVideoService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
