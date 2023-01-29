@@ -1,0 +1,55 @@
+<div class="course-container">
+    <div class="course-header">
+        <span>Course {{courseDetails?.name}}</span>
+        <button class="publish-btn">Publish</button>
+    </div>
+    <div class="course-top">
+        <div class="top-left">
+            <div class="item">
+                <label for="">Name</label>
+                <input type="text" [value]="courseDetails?.name" id="" placeholder="C++" readonly>
+            </div>
+
+            <div class="item">
+                <label for="">Category</label>
+                <input type="text" [value]="courseDetails?.category" id="" placeholder="C++" readonly>
+            </div>
+            <div class="item">
+                <label for="">Author</label>
+                <input type="text" [value]="courseDetails?.author" id="" placeholder="Pankaj Pandey" id="" readonly>
+            </div>
+            <div class="item">
+                <label for="">Description</label>
+                <input type="text" [value]="courseDetails?.description" readonly placeholder="description">
+            </div>
+            <div class="item">
+                <label for="">Fees</label>
+                <input type="text" [value]="courseDetails?.fees" readonly placeholder="fees">
+            </div>
+        </div>
+        <div class="top-right">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            <div class="image">
+                <img src="./../../../../assets/image/upload-img-icon.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="course-bottom">
+        <div class="bottom-top">
+            <span>Course Videos</span>
+            <i class="fa fa-plus" aria-hidden="true"></i>
+        </div>
+        <div class="video-container">
+            <div class="video-item">
+                <div class="item-top">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </div>
+                <div class="item-bottom">
+                    <span>title</span>
+                </div>
+                <!-- <img src="./../../../../assets//image/Cpp.png" alt=""> -->
+            </div>
+        </div>
+
+    </div>
+</div>
