@@ -32,7 +32,6 @@ export const databaseProviders = [
       sequelize.addModels([
         User,
         Course,
-        CourseSection,
         Video,
         UsersCourse,
         CourseImage

@@ -5,25 +5,29 @@ import { diskStorage } from 'multer';
 import { CoursesService } from './courses.service';
 import { CourseDto } from './dto/course.dto';
 import { CourseImageService } from './services/course-image.service';
+import { CourseVideoService } from './services/course-video.service';
 
 @Controller('course')
 export class CoursesController {
   constructor(
     private courseService: CoursesService,
-    private courseImageService: CourseImageService
+    private courseImageService: CourseImageService,
+    private courseVideoService: CourseVideoService
   ) {}
 
+  // add course details
   @Post('/add-course')
   public async addCourseDetails(@Body() courseDto: CourseDto) {
     console.log({ courseDto });
     return await this.courseService.add(courseDto);
   }
 
+  //uploading course image using  @UseInterceptors and FileInterceptor
   @Post('/:courseId/add-course-img/')
   @UseInterceptors(
     FileInterceptor('img', {
       storage: diskStorage({
-        destination: './uploads',
+        destination: './uploads/image',
         filename: (req, img, cb) => {
           const name = img.originalname.split('.')[0];
           const fileExtension = img.originalname.split('.')[1];
@@ -49,6 +53,47 @@ export class CoursesController {
       Image: img.filename,
       courseId
     });
+  }
+
+  // adding course video using @UseInterceptors and FileInterceptor
+  @UseInterceptors(
+    FileInterceptor('video', {
+      storage: diskStorage({
+        destination: './uploads/video',
+        filename: (req, video, cb) => {
+          const name = video.originalname.split('.')[0];
+          const fileExtension = video.originalname.split('.')[1];
+          const newFileName =
+            name.split(' ').join('_') + '_' + Date.now() + '.' + fileExtension;
+          cb(null, newFileName);
+        }
+      }),
+      fileFilter: (req, video, cb) => {
+        if (!video.originalname.match(/\.(mp4|mov)$/)) {
+          return cb(null, false);
+        }
+        return cb(null, true);
+      }
+    })
+  )
+  @Post('/video/:courseId/:title')
+  public async addCourseVideo(
+    @UploadedFile() video: Express.Multer.File,
+    @Param('title') title: string,
+    @Param('courseId') courseId: number
+  ) {
+    console.log(title, courseId, video);
+    return await this.courseVideoService.addCourseVideo({
+      title,
+      courseId,
+      videoUrl: video.filename
+    });
+  }
+
+  @Get('/videos/:courseId')
+  public async getAllCourseVideos(@Param('courseId') courseId: number) {
+    console.log('get all course videos', { courseId });
+    return await this.courseVideoService.getAllCourseVideosByCourseId(courseId);
   }
 
   @Get()

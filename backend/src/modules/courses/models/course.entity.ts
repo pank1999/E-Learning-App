@@ -28,9 +28,6 @@ export class Course extends Model<Course> {
   })
   category: string;
 
-  @HasMany(() => CourseSection)
-  sections: CourseSection[];
-
   @Column({
     type: DataType.STRING,
     allowNull: false
