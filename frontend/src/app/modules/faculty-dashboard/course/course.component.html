@@ -37,15 +37,15 @@
     <div class="course-bottom">
         <div class="bottom-top">
             <span>Course Videos</span>
-            <i class="fa fa-plus" aria-hidden="true"></i>
+            <i class="fa fa-plus" aria-hidden="true" (click)="openAddVideoDialog()"></i>
         </div>
         <div class="video-container">
-            <div class="video-item">
+            <div class="video-item" *ngFor="let video of videos">
                 <div class="item-top">
                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                 </div>
                 <div class="item-bottom">
-                    <span>title</span>
+                    <span>{{video.title}}</span>
                 </div>
                 <!-- <img src="./../../../../assets//image/Cpp.png" alt=""> -->
             </div>

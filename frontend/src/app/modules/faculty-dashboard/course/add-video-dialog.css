@@ -1,0 +1,49 @@
+.add-video{
+    padding: 1rem;
+}
+.form-container .form-item{
+    display: flex;
+    flex-direction: column;
+}
+.form-item{
+    margin-top: 1rem;
+}
+.top{
+    display: flex;
+    justify-content: space-between;
+
+}
+label{
+    margin-bottom: 0.5rem;
+}
+.top span{
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+input[type="text"]{
+    height: 7vh;
+    width: 100%;
+    border-radius: 5px;
+    background-color: rgb(238, 238, 238);
+    border: none;
+}
+.preview{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.preview video{
+    height: 30vh;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+.submit-btn{
+    padding: 0.8rem 1.4rem;
+    border-radius: 10px;
+    background-color:#FFAA05 ;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+}
