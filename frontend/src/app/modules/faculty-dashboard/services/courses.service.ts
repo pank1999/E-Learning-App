@@ -11,4 +11,9 @@ export class CoursesService {
       `http://localhost:3000/api/v1/course/faculty/${facultyId}`
     );
   }
+  public getCourseById(id: number) {
+    return this.http.get<CourseDetails>(
+      `http://localhost:3000/api/v1/course/${id}`
+    );
+  }
 }

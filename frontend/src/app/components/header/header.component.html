@@ -18,8 +18,8 @@
             <li>
                 <a routerLink="/Training">Training</a>
             </li>
-            <li>
-                <a routerLink="/Placements">Placements Prep</a>
+            <li *ngIf="User!=false">
+                <a routerLink="/faculty-dashboard/courses" style="color:rgb(0, 212, 141)">Dashboard</a>
             </li>
         </ul>
         <a routerLink="/login" *ngIf="User==false else elseBlock ">

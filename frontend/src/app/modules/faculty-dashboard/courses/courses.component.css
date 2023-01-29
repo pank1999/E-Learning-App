@@ -9,6 +9,10 @@
     display: flex;
     justify-content: space-between;
 }
+.right .top span{
+    font-weight: 500;
+    font-size: 1.2em;
+}
 .right .bottom{
 height: 64vh;
 }
@@ -21,7 +25,7 @@ height: 64vh;
 }
 .course-item{
     height: 25vh;
-    max-height: 300px;
+    /* max-height: 300px; */
     width: 18vw;
     background-color: rgb(224, 224, 224);
     margin: 1em;
@@ -46,9 +50,8 @@ height: 64vh;
     background-color:#4FC198 ;
     border: none;
     font-size: 1rem;
-    position: absolute;
-    bottom: 10px;
-    margin-left: 110px;
+    /* position: absolute; */
+    margin-top: 2rem;
+    margin-left: 8rem; 
     cursor: pointer;
-
 }

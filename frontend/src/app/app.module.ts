@@ -20,6 +20,7 @@ import { ProgressbarComponent } from './components/progressbar/progressbar.compo
 import { LiveClassDashboardComponent } from './learning/live-class-dashboard/live-class-dashboard.component';
 import { FacultyDashboardModule } from './modules/faculty-dashboard/faculty-dashboard.module';
 import { CoursesService } from './modules/faculty-dashboard/services/courses.service';
+import { AddCourseService } from './modules/faculty-dashboard/services/add-course.service';
 // import { AgoraRTCService } from './services/agoraRTC.service';
 
 @NgModule({
@@ -45,7 +46,7 @@ import { CoursesService } from './modules/faculty-dashboard/services/courses.ser
     FormsModule,
     // FacultyDashboardModule,
   ],
-  providers: [AuthServiceService, CoursesService],
+  providers: [AuthServiceService, CoursesService, AddCourseService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
