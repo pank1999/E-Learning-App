@@ -2,6 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { CourseDto } from './dto/course.dto';
 import { COURSE_REPOSITORY } from './constants';
 import { Course } from './models/course.entity';
+import { CourseImage } from './models/course-image.entity';
 @Injectable()
 export class CoursesService {
   constructor(
@@ -20,7 +21,14 @@ export class CoursesService {
 
   public async getById(Id: number): Promise<Course> {
     console.log('all courses', Id);
-    return await this.coursesRepository.findOne<Course>({ where: { id: Id } });
+    return await this.coursesRepository.findOne<Course>({
+      where: { id: Id },
+      include: [
+        {
+          model: CourseImage
+        }
+      ]
+    });
   }
 
   // get all course by published status true
@@ -42,7 +50,29 @@ export class CoursesService {
   public async getAllByFacultyId(facultyId: number): Promise<Course[]> {
     console.log('all courses by faculty id', facultyId);
     return await this.coursesRepository.findAll<Course>({
-      where: { facultyId: facultyId }
+      where: { facultyId: facultyId },
+      include: [
+        {
+          model: CourseImage
+        }
+      ]
+    });
+  }
+
+  public async deleteCourse(courseId: number) {
+    console.log('course deleted', courseId);
+    return await this.coursesRepository.destroy({
+      where: { id: courseId }
+    });
+  }
+
+  public async updateCourse(
+    courseId: number,
+    courseDetails: Partial<CourseDto>
+  ) {
+    console.log({ courseDetails });
+    return await this.coursesRepository.update(courseDetails, {
+      where: { id: courseId }
     });
   }
 }
