@@ -27,14 +27,32 @@ height: 64vh;
     height: 25vh;
     /* max-height: 300px; */
     width: 18vw;
-    background-color: rgb(224, 224, 224);
+    background-color: rgb(29, 216, 145);
     margin: 1em;
     border-radius: 5px;
     position: relative;
+    box-shadow: 0px 0px 2px 2px rgb(207, 207, 207);
+}
+
+.delete-icon{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
 }
 .course-item p{
     text-align: center;
-    margin-top: 3rem;
+    position: absolute;
+    /* background-color: rgb(255, 255, 255,0.8); */
+    /* width: 100%; */
+    top:30%;
+    left: 40%;
+    /* margin-top: 3rem; */
+}
+.course-item img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
 }
 .create-btn{
     padding: 10px 20px;
@@ -45,13 +63,16 @@ height: 64vh;
     cursor: pointer;
 }
 .continue-btn{
-    padding: 5px 10px;
+    padding: 0.5rem 1rem;
     border-radius: 50px;
-    background-color:#4FC198 ;
+    /* background-color:#4FC198 ; */
+    background-color: rgb(28, 28, 28,0.5);
     border: none;
+    color: white;
     font-size: 1rem;
-    /* position: absolute; */
-    margin-top: 2rem;
-    margin-left: 8rem; 
+    position: absolute;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
     cursor: pointer;
 }

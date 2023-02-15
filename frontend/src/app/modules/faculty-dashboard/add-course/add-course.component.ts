@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AddedCourseDetails } from '../interfaces/course.interface';
+import {
+  AddedCourseDetails,
+  CourseDetails,
+} from '../interfaces/course.interface';
 import { AddCourseService } from '../services/add-course.service';
 
 @Component({
@@ -26,10 +29,14 @@ export class AddCourseComponent implements OnInit {
 
   async onSubmit(form: any) {
     console.log(form.value);
-    const addedCourseDetails: AddedCourseDetails =
-      await this.addCourseService.addCourse(form.value);
-    this.router.navigateByUrl(
-      `faculty-dashboard/add-course-image/${addedCourseDetails.id}`
-    );
+    await this.addCourseService.addCourse(form.value).then((result) => {
+      console.log({ result });
+      result.subscribe((res) => {
+        console.log(res);
+        this.router.navigateByUrl(
+          `faculty-dashboard/add-course-image/${res.id}`
+        );
+      });
+    });
   }
 }

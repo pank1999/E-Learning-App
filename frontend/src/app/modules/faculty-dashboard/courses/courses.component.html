@@ -12,8 +12,11 @@
     <div class="bottom">
         <div class="course-container">
             <div class="course-item" *ngFor="let course of courses">
-                <!-- <app-progressbar progressBarWidth="20vw" [progress]="course.progress.toString()"></app-progressbar> -->
-                <p>{{course.name}}</p>
+                <img [src]="course.image![0].Image " alt="">
+                <!-- <img src="./../../../../assets//image/C++.png" alt=""> -->
+                <i class="fa fa-trash-o delete-icon"
+                    (click)="deleteCourseDialog(course.id,course.name,course.image![0].Image)" aria-hidden="true"></i>
+                <!-- <p>{{course.name}}</p> -->
                 <button class="continue-btn" (click)="goToCourse(course.id)">continue</button>
             </div>
         </div>

@@ -10,6 +10,7 @@ export interface AddedCourseDetails {
 export interface CourseDetails {
   id: number;
   name: string;
+  image?: any;
   description: string;
   category: string;
   author: string;

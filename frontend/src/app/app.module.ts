@@ -18,13 +18,20 @@ import { CourseDashboardComponent } from './learning/course-dashboard/course-das
 import { VideoComponent } from './learning/video/video.component';
 import { ProgressbarComponent } from './components/progressbar/progressbar.component';
 import { LiveClassDashboardComponent } from './learning/live-class-dashboard/live-class-dashboard.component';
-import { FacultyDashboardModule } from './modules/faculty-dashboard/faculty-dashboard.module';
 import { CoursesService } from './modules/faculty-dashboard/services/courses.service';
 import { AddCourseService } from './modules/faculty-dashboard/services/add-course.service';
-import {  MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AddVideoService } from './modules/faculty-dashboard/services/add-video.service';
 import { CourseComponent } from './modules/faculty-dashboard/course/course.component';
+import { AddCourseImageService } from './modules/faculty-dashboard/services/add-course-image.service';
 // import { AgoraRTCService } from './services/agoraRTC.service';
+
+import { provideStorage, getStorage } from '@angular/fire/storage';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { FacultyDashboardModule } from './modules/faculty-dashboard/faculty-dashboard.module';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -39,7 +46,7 @@ import { CourseComponent } from './modules/faculty-dashboard/course/course.compo
     VideoComponent,
     ProgressbarComponent,
     LiveClassDashboardComponent,
-    CourseComponent
+    CourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,9 +56,19 @@ import { CourseComponent } from './modules/faculty-dashboard/course/course.compo
     HttpClientModule,
     FormsModule,
     MatDialogModule,
-    // FacultyDashboardModule,
+    MatProgressBarModule,
+    provideStorage(() => getStorage()),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    FacultyDashboardModule,
   ],
-  providers: [AuthServiceService, CoursesService, AddCourseService,AddVideoService],
+  providers: [
+    AuthServiceService,
+    CoursesService,
+    AddCourseService,
+    AddVideoService,
+    AddCourseImageService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

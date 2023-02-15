@@ -1,26 +1,25 @@
 <div class="add-video">
+    <mat-progress-bar *ngIf="afterSubmit && buttonStatus!=='completed'" mode="indeterminate"></mat-progress-bar>
     <div class="top">
         <span mat-dialog-title>Add Video</span>
-        <!-- <button mat-button mat-dialog-close>Close</button> -->
-        <!-- <i class="fa fa-times"  aria-hidden="true"></i> -->
     </div>
     <hr>
     <form [formGroup]="videoForm" #myForm="ngForm" (ngSubmit)="submit(myForm)">
         <div class="form-container">
             <div class="form-item">
                 <label for="">Title</label>
-                <input type="text" formControlName="title" >
+                <input type="text" formControlName="title">
             </div>
             <div class="preview">
                 <label for="">Video Preview</label>
-                <video [src]="videoSrc" ></video>
+                <video [src]="videoSrc"></video>
             </div>
             <div class="form-item">
-                 <label for="">Upload Video</label>
-                <input type="file" id=""  (change)="onFileChange($event)">
+                <label for="">Upload Video</label>
+                <input type="file" id="" (change)="onFileChange($event)">
             </div>
             <div class="form-item">
-                <button class="submit-btn">submit</button>
+                <button [style.background-color]="bgcolor" class="submit-btn">{{buttonStatus}}</button>
             </div>
         </div>
     </form>

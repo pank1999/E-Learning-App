@@ -1,0 +1,20 @@
+.close{
+    border: none;
+    background-color: gainsboro;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.delete{
+    border: none;
+    background-color: rgb(232, 63, 63);
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: white;
+}
+.actions{
+    display: flex;
+    justify-content:space-between;
+    width: 100%;
+}
