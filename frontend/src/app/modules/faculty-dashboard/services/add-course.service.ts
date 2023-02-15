@@ -25,13 +25,14 @@ export class AddCourseService {
       progress: 10,
       facultyId: 1,
     });
-    this.AddedCourseDetails$ = this.http.post<CourseDetails>(
+    return this.http.post<CourseDetails>(
       'http://localhost:3000/api/v1/course/add-course',
       { ...courseDetails, isPublished: false, progress: 10, facultyId: 1 }
     );
-    this.AddedCourseDetails$.subscribe((result) => {
-      this.addedCourseDetails = result;
-    });
-    return this.addedCourseDetails;
+
+    // this.AddedCourseDetails$.subscribe((result) => {
+    //   this.addedCourseDetails = result;
+    // });
+    // return this.addedCourseDetails;
   }
 }

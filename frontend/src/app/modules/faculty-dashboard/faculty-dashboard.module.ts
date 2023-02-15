@@ -10,9 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddCourseImageComponent } from './add-course-image/add-course-image.component';
 import { AddCourseImageService } from './services/add-course-image.service';
 import { CoursesService } from './services/courses.service';
-import { MatDialogClose } from '@angular/material/dialog';
 import { AddVideoDialog } from './course/course.component';
 import { AddVideoService } from './services/add-video.service';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { DeleteService } from './services/delete.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,14 @@ import { AddVideoService } from './services/add-video.service';
     FacultyRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatProgressBarModule,
   ],
-  providers: [AddCourseService, AddCourseImageService, CoursesService,AddVideoService],
+  providers: [
+    AddCourseService,
+    AddCourseImageService,
+    CoursesService,
+    AddVideoService,
+    DeleteService,
+  ],
 })
 export class FacultyDashboardModule {}

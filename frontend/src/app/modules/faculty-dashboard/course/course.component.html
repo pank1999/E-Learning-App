@@ -3,37 +3,68 @@
         <span>Course {{courseDetails?.name}}</span>
         <button class="publish-btn">Publish</button>
     </div>
-    <div class="course-top">
-        <div class="top-left">
-            <div class="item">
-                <label for="">Name</label>
-                <input type="text" [value]="courseDetails?.name" id="" placeholder="C++" readonly>
-            </div>
+    <form [formGroup]="updateCourseForm" #form="ngForm" (ngSubmit)="updateCourseDetails(form)">
+        <div class="course-top">
+            <div class="top-left">
+                <div class="item">
+                    <label for="">Name</label>
+                    <input type="text" formControlName="name" [value]="courseDetails?.name" id=""
+                        placeholder="course name" [readonly]="!enableEditing">
+                </div>
 
-            <div class="item">
-                <label for="">Category</label>
-                <input type="text" [value]="courseDetails?.category" id="" placeholder="C++" readonly>
+                <div class="item" *ngIf="!enableEditing else elseCategory">
+                    <label for="">Category</label>
+                    <input type="text" [value]="courseDetails?.category" formControlName="description"
+                        placeholder="category" [readonly]="!enableEditing">
+                </div>
+                <ng-template #elseCategory>
+                    <div class="item">
+                        <label for="">Category</label>
+                        <select name="category" id="Category" formControlName="category">
+                            <option value="Programming Language">Programming Language</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="Android Development">Android Development</option>
+                        </select>
+                    </div>
+                </ng-template>
+                <div class="item">
+                    <label for="">Author</label>
+                    <input type="text" [value]="courseDetails?.author" formControlName="author"
+                        placeholder="Author Name" id="" [readonly]="!enableEditing">
+                </div>
+                <div class="item">
+                    <label for="">Description</label>
+                    <input type="text" [value]="courseDetails?.description" [readonly]="!enableEditing"
+                        placeholder="description">
+                </div>
+
+                <div class="item" *ngIf="!enableEditing else elseFees">
+                    <label for="">Fees</label>
+                    <input type="text" [value]="courseDetails?.fees" [readonly]="!enableEditing" placeholder="fees">
+                </div>
+
+                <ng-template #elseFees>
+                    <div class="item">
+                        <label for="">Fees</label>
+                        <select name="fees" id="fees" formControlName="fees">
+                            <option value="Free">Free</option>
+                            <option value="Paid">Paid</option>
+                        </select>
+                    </div>
+
+                </ng-template>
+                <div class="item" *ngIf="showUpdateButton">
+                    <button class="publish-update" type="submit">update</button>
+                </div>
             </div>
-            <div class="item">
-                <label for="">Author</label>
-                <input type="text" [value]="courseDetails?.author" id="" placeholder="Pankaj Pandey" id="" readonly>
-            </div>
-            <div class="item">
-                <label for="">Description</label>
-                <input type="text" [value]="courseDetails?.description" readonly placeholder="description">
-            </div>
-            <div class="item">
-                <label for="">Fees</label>
-                <input type="text" [value]="courseDetails?.fees" readonly placeholder="fees">
+            <div class="top-right">
+                <i class="fa fa-pencil" (click)="editDetails()" aria-hidden="true"></i>
+                <div class="image">
+                    <img [src]="courseDetails?.image[0].Image" alt="img">
+                </div>
             </div>
         </div>
-        <div class="top-right">
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-            <div class="image">
-                <img src="./../../../../assets/image/upload-img-icon.jpg" alt="">
-            </div>
-        </div>
-    </div>
+    </form>
     <div class="course-bottom">
         <div class="bottom-top">
             <span>Course Videos</span>
@@ -41,13 +72,13 @@
         </div>
         <div class="video-container">
             <div class="video-item" *ngFor="let video of videos">
+                <!-- <video [src]="video.videoUrl"></video> -->
                 <div class="item-top">
-                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    <i class="fa fa-trash-o" (click)="deleteVideo(video.id,video.videoUrl)" aria-hidden="true"></i>
                 </div>
                 <div class="item-bottom">
                     <span>{{video.title}}</span>
                 </div>
-                <!-- <img src="./../../../../assets//image/Cpp.png" alt=""> -->
             </div>
         </div>
 
