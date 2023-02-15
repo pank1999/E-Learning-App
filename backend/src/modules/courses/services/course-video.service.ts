@@ -6,7 +6,7 @@ import { Video } from '../models/video.entity';
 export class CourseVideoService {
   constructor(
     @Inject(COURSE_VIDEO_REPOSITORY)
-    private readonly courseVideoRepository: typeof Video 
+    private readonly courseVideoRepository: typeof Video
   ) {}
 
   public async addCourseVideo(courseVideo: ICourseVideo): Promise<Video> {
@@ -20,5 +20,9 @@ export class CourseVideoService {
     return await this.courseVideoRepository.findAll({
       where: { courseId }
     });
+  }
+
+  public async deleteVideo(Id: number): Promise<number> {
+    return await this.courseVideoRepository.destroy({ where: { id: Id } });
   }
 }
