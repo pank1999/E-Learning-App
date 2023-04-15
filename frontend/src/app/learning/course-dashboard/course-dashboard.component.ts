@@ -1,35 +1,43 @@
-import { NONE_TYPE } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { coursePLaylist } from 'src/assets/DummyData/course-playlsit';
+import { localStorageKeys } from 'src/app/constants';
+import { ICourse, IVideo } from 'src/app/interface/course';
+import { LocalLoggedInUser } from 'src/app/interface/user.types';
+import { CourseService } from 'src/app/services/course.service';
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-course-dashboard',
   templateUrl: './course-dashboard.component.html',
   styleUrls: ['./course-dashboard.component.css'],
 })
 export class CourseDashboardComponent implements OnInit {
-  constructor(private router: Router) {}
-  coursePlayList = coursePLaylist;
-  Username = 'Pankaj1999';
+  constructor(
+    private router: Router,
+    private courseService: CourseService,
+    private userService: UserService
+  ) {}
+  coursePlayList: IVideo[] = [];
+  Username = '';
   url: string = '';
   courseName = '';
+  course!: ICourse;
   ngOnInit(): void {
-    this.courseName = this.router.url.split('/')[3];
-    console.log(this.courseName);
-  }
-
-  ToggleSubTopics(id: number) {
-    console.log('Toggle Sub Topics', id);
-    this.coursePlayList[id - 1].Toggle = !coursePLaylist[id - 1].Toggle;
-  }
-  playNext(sectionId: number, subTopicId: number) {
-    this.url = `learning/dashboard/${this.courseName}/video/${subTopicId}`;
-
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate([`/${this.url}`]).then(() => {
-        console.log(`After navigation I am on:${this.router.url}`);
-      });
+    const courseId = this.router.url.split('/')[3];
+    this.courseService.getCourseById(parseInt(courseId)).subscribe((course) => {
+      if (course) {
+        this.course = course;
+        this.courseName = course.name;
+        this.coursePlayList = course.videos;
+      }
     });
-    console.log(this.url);
+    this.userService.getUserDetails().then((user) => {
+      this.Username = user.name;
+    });
+  }
+  playNext(videoId: number) {
+    this.url = `learning/dashboard/${this.course.id}/${this.courseName}/video/${videoId}`;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([`/${this.url}`]).then(() => {});
+    });
   }
 }

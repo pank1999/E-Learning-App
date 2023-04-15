@@ -2,7 +2,6 @@ import { CourseSection } from './course-section.interface';
 
 export interface Course {
   name: string;
-  img: string;
   category:
     | 'programming-language'
     | 'web-development'
@@ -12,8 +11,10 @@ export interface Course {
     | 'UI/UX'
     | 'IOT'
     | 'others';
-  section: CourseSection[];
   description: string;
   author: string;
   fees: 'free' | 'paid';
+  isPublished: boolean;
+  progress: number;
+  facultyId: number;
 }

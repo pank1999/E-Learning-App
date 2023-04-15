@@ -12,44 +12,46 @@
             <button (click)="JoinLiveClass('course')">Join Now</button>
         </div>
     </div>
-    <div class="programming-section">
-        <div class="top">
-            <h3>Programming Languages</h3>
-        </div>
-        <div class="bottom">
-            <div (click)="MoveLeft()">
-                <i class="fa-solid fa-caret-left" style="font-size: 30px;color: rgb(255, 187, 40);"></i>
-            </div>
-            <div class="courses-container">
-                <div class="courses-item" *ngFor="let item of programmingLanguageList">
-                    <img [src]="item.imgUrl" (click)="course(item)" height="180px" width="180px" alt="">
-                </div>
-            </div>
-            <div (click)="MoveRight()">
-                <i class="fa-solid fa-caret-right" style="font-size: 30px;color: rgb(255, 187, 40);"></i>
-            </div>
-        </div>
-    </div>
     <div class="popular-course-section">
         <div class="top">
             <h3>My Courses</h3>
         </div>
         <div class="bottom">
-            <div (click)="MoveLeft()">
-                <i class="fa-solid fa-caret-left" style="font-size: 30px;color: rgb(255, 187, 40);"></i>
-            </div>
-            <!-- <app-courses-container></app-courses-container> -->
-            <div class="courses-container">
-                <div routerLink='/learning/dashboard' class="courses-item" *ngFor="let course of coursesList"
-                    [style.background-color]="'black'">
-                    <app-progressbar progressBarWidth="170px" progress="70%"></app-progressbar>
-                    <h2>{{course.title}}</h2>
-                    <button class="continue-btn" (click)="courseDashboard('courseName')">continue</button>
+            <div class="slider-container">
+                <div class="slider-main courses-container">
+                    <div routerLink='/learning/dashboard' class="courses-item slider-item"
+                        *ngFor="let userCourse of usersCourses">
+                        <!-- <img [src]="userCourse.course.image[0].Image" alt=""> -->
+                        <!-- <app-progressbar style="position: absolute;top:0;" progressBarWidth="170px"
+                            progress="70%"></app-progressbar> -->
+                        <span>{{userCourse.course.name}}</span>
+                        <button class="continue-btn" (click)="courseDashboard(userCourse.course)">continue</button>
+                    </div>
                 </div>
-            </div>
-            <div (click)="MoveRight()">
-                <i class="fa-solid fa-caret-right" style="font-size: 30px;color: rgb(255, 187, 40);"></i>
+                <div class="button-area">
+                    <i appPrev class="fa fa-chevron-circle-left prev" aria-hidden="true"></i>
+                    <i class="fa fa-chevron-circle-right next" aria-hidden="true" appNext></i>
+                </div>
             </div>
         </div>
     </div>
+    <div class="programming-section">
+        <div class="top">
+            <h3>Programming Languages</h3>
+        </div>
+        <div class="bottom">
+            <div class="slider-container">
+                <div class="slider-main courses-container">
+                    <div class="courses-item slider-item" *ngFor="let item of coursesList">
+                        <img [src]="item.image[0].Image" (click)="course(item)" alt="">
+                    </div>
+                </div>
+                <div class="button-area">
+                    <i appPrev class="fa fa-chevron-circle-left prev" aria-hidden="true"></i>
+                    <i class="fa fa-chevron-circle-right next" aria-hidden="true" appNext></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

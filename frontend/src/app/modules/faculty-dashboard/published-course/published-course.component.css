@@ -1,0 +1,38 @@
+.course-item{
+    height: 25vh;
+    /* max-height: 300px; */
+    width: 18vw;
+    background-color: rgb(29, 216, 145);
+    margin: 1em;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0px 0px 2px 2px rgb(207, 207, 207);
+}
+
+.course-item img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /* opacity: 0.8; */
+}
+
+.course-item button{
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    background-color:#FFAA05 ;
+    /* background-color: rgb(28, 28, 28,0.5); */
+    border: none;
+    color: rgb(36, 36, 36);
+    font-size: 1rem;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.certificate-icon{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}

@@ -15,7 +15,54 @@
     cursor: pointer;
     margin: 1em;
 }
-.courses-item:hover{
-    transform: scale(1.02);
+
+/* slider */
+.slider-container{
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    margin-right: 20px;
+    z-index: 0;
+}
+.slider-main{
+    display: flex;
+    transition: all ease-in;
+}
+.slider-item{
+    display: flex;
+    background-color: rgb(5, 123, 84);
+    margin-left: 1.3rem;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.slider-item:hover{
+    transform: scale(0.9);
     transition: ease;
+}
+.slider-item:first-child{
+    margin-left: 1rem;
+}
+.button-area i{
+     font-size: 2rem;
+     cursor: pointer;
+     color: rgb(174, 174, 174);
+}
+.button-area i:hover{
+    color: rgb(255, 174, 0);
+}
+.prev{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translate(-50%,-50%);
+}
+.next{
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
 }

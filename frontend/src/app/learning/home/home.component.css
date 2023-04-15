@@ -59,15 +59,7 @@
     align-items: center;
     justify-content: space-between;
 }
-.left-arrow{
-   margin-right: -200px;
-}
-.right-arrow{
-    margin-left: -800px;
-}
-i{
-    cursor: pointer;
-}
+
 .courses-container{
     display: flex;
     align-items: center;
@@ -75,27 +67,32 @@ i{
     overflow: hidden;
 }
 .courses-item{
-    min-height: 180px;
-    min-width: 200px;
-    max-width: 200px;
-    min-height: 180px;
+    height: 25vh;
+    width: 15vw;
     border-radius: 10px;
     margin-right: 20px;
-    background-color: rgb(33, 180, 143);
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
     cursor: pointer;
+    position: relative;
+    background-color: rgb(207, 207, 207);
 
 }
-.courses-item h2{
+.courses-item img{
+    height: 25vh;
+    width: 15vw;
+}
+.courses-item span{
     text-align: center;
     width: 100%;
-    color: white;
+    color: rgb(30, 30, 30);
+    position: absolute;
+    font-size: 1em;
 }
-.courses-item:hover{
-    transform: scale(0.9);
+.courses-item img:hover{
+    opacity: 0.8;
     transition: ease;
 }
 
@@ -109,4 +106,48 @@ i{
     background-color:rgb(236, 177, 0);
     border-radius: 30px;
     cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+}
+
+
+
+.slider-container{
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    margin-right: 20px;
+    z-index: 0;
+}
+.slider-main{
+    display: flex;
+    transition: all ease-in;
+    margin: 0px 10px 0px 30px;
+
+}
+.slider-item{
+   margin-left: 0.5rem;
+}
+
+.button-area i{
+    font-size: 2rem;
+    cursor: pointer;
+    color: rgb(174, 174, 174);
+}
+.button-area i:hover{
+   color: rgb(255, 174, 0);
+}
+
+.prev{
+    position: absolute;
+    top: 50%;
+    left:20px;
+    transform: translate(-50%,-50%);
+}
+.next{
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
 }

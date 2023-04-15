@@ -3,6 +3,7 @@ import { CourseDto } from './dto/course.dto';
 import { COURSE_REPOSITORY } from './constants';
 import { Course } from './models/course.entity';
 import { CourseImage } from './models/course-image.entity';
+import { Video } from './models/video.entity';
 @Injectable()
 export class CoursesService {
   constructor(
@@ -16,7 +17,9 @@ export class CoursesService {
 
   public async getAll(): Promise<Course[]> {
     console.log('all courses ');
-    return await this.coursesRepository.findAll<Course>();
+    return await this.coursesRepository.findAll<Course>({
+      include: CourseImage
+    });
   }
 
   public async getById(Id: number): Promise<Course> {
@@ -26,6 +29,9 @@ export class CoursesService {
       include: [
         {
           model: CourseImage
+        },
+        {
+          model: Video
         }
       ]
     });
@@ -51,6 +57,18 @@ export class CoursesService {
     console.log('all courses by faculty id', facultyId);
     return await this.coursesRepository.findAll<Course>({
       where: { facultyId: facultyId },
+      include: [
+        {
+          model: CourseImage
+        }
+      ]
+    });
+  }
+
+  public async getAllPublishedCourses(facultyId: number): Promise<Course[]> {
+    console.log('all courses by faculty id', facultyId);
+    return await this.coursesRepository.findAll<Course>({
+      where: { facultyId: facultyId, isPublished: true },
       include: [
         {
           model: CourseImage

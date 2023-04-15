@@ -23,13 +23,13 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'course-details',
+    path: 'course-details/:id',
     component: CourseComponent,
   },
-  // {
-  //   path: 'faculty-dashboard',
-  //   component: DashboardComponent,
-  // },
+  {
+    path: 'faculty-dashboard',
+    component: DashboardComponent,
+  },
 ];
 
 @NgModule({

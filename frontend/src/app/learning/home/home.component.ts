@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ICourse } from 'src/app/interface/course';
+import { IUsersCourse } from 'src/app/interface/user-course';
 import { AgoraRTCService } from 'src/app/services/agoraRTC.service';
+import { CourseService } from 'src/app/services/course.service';
+import { UserService } from 'src/app/services/user.service';
 import {
   courses,
   programmingLanguages,
@@ -11,25 +15,31 @@ import {
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private router: Router, private agoraRTC: AgoraRTCService) {}
+  constructor(
+    private router: Router,
+    private agoraRTC: AgoraRTCService,
+    private courseService: CourseService,
+    private userService: UserService
+  ) {}
+  coursesList!: ICourse[];
+  usersCourses!: IUsersCourse[];
+  ngOnInit(): void {
+    this.courseService.getAllCourses().subscribe((courses) => {
+      if (courses) {
+        this.coursesList = courses;
+        console.log(this.coursesList);
+      }
+    });
+    this.userService.getUsersCourses().subscribe((userCourse) => {
+      if (userCourse) {
+        this.usersCourses = userCourse;
+        console.log(this.usersCourses);
+      }
+    });
+  }
 
-  ngOnInit(): void {}
-  leftArrowClicked = false;
-  rightArrowClicked = false;
-  coursesList = courses;
-  programmingLanguageList = programmingLanguages;
-  MoveLeft() {
-    console.log('Move Left');
-    this.leftArrowClicked = true;
-    this.rightArrowClicked = false;
-  }
-  MoveRight() {
-    console.log('Move Right');
-    this.rightArrowClicked = true;
-    this.leftArrowClicked = false;
-  }
-  courseDashboard(course: string) {
-    this.router.navigate([`/learning/dashboard/${course}`]);
+  courseDashboard(course: ICourse) {
+    this.router.navigate([`/learning/dashboard/${course.id}/${course.name}`]);
   }
   async JoinLiveClass(course: string) {
     this.router.navigate([`learning/live/${course}`]);
@@ -37,6 +47,6 @@ export class HomeComponent implements OnInit {
     // await this.agoraRTC.joinBtnClicked();
   }
   course(course: any) {
-    this.router.navigate(['/course-details']);
+    this.router.navigate([`/course-details/${course.id}`]);
   }
 }

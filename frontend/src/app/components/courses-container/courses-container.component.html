@@ -1,5 +1,11 @@
-<div class="courses-container">
-    <div class="courses-item" *ngFor="let item of List">
-        <img [src]="item.imgUrl" (click)="course(item)" alt="">
+<div class="slider-container">
+    <div class="slider-main courses-container">
+        <div class="slider-item" *ngFor="let item of List">
+            <img [src]="item.imgUrl" (click)="course(item)" alt="">
+        </div>
+    </div>
+    <div class="button-area">
+        <i appPrev class="fa fa-chevron-circle-left prev" aria-hidden="true"></i>
+        <i class="fa fa-chevron-circle-right next" aria-hidden="true" appNext></i>
     </div>
 </div>

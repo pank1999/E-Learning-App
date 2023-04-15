@@ -22,6 +22,12 @@ export class CourseVideoService {
     });
   }
 
+  public async getVideoById(id: number): Promise<Video> {
+    console.log('getting video by id', id);
+    return await this.courseVideoRepository.findOne({
+      where: { id }
+    });
+  }
   public async deleteVideo(Id: number): Promise<number> {
     return await this.courseVideoRepository.destroy({ where: { id: Id } });
   }

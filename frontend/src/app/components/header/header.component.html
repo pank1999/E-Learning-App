@@ -9,7 +9,7 @@
             <li>
                 <a routerLink="/">Home</a>
             </li>
-            <li>
+            <li *ngIf="User && User.role ==='Student'">
                 <a routerLink="/learning">Learning</a>
             </li>
             <li>
@@ -18,11 +18,11 @@
             <li>
                 <a routerLink="/Training">Training</a>
             </li>
-            <li *ngIf="User!=false">
+            <li *ngIf="User && User.role =='Faculty'">
                 <a routerLink="/faculty-dashboard/courses" style="color:rgb(0, 212, 141)">Dashboard</a>
             </li>
         </ul>
-        <a routerLink="/login" *ngIf="User==false else elseBlock ">
+        <a routerLink="/login" *ngIf="!User else elseBlock ">
             <button>Login</button>
         </a>
         <ng-template #elseBlock>

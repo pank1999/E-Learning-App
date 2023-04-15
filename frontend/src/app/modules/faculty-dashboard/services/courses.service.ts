@@ -12,6 +12,12 @@ export class CoursesService {
       `http://localhost:3000/api/v1/course/faculty/${facultyId}`
     );
   }
+
+  public getPublishedCourses(facultyId: number) {
+    return this.http.get<CourseDetails[]>(
+      `http://localhost:3000/api/v1/course/faculty/published/${facultyId}`
+    );
+  }
   public getCourseById(id: number) {
     return this.http.get<CourseDetails>(
       `http://localhost:3000/api/v1/course/${id}`
@@ -40,5 +46,14 @@ export class CoursesService {
           console.log(res);
         }
       });
+  }
+
+  public publishCourse(id: number) {
+    return this.http.put<CourseDetails>(
+      `http://localhost:3000/api/v1/course/update/${id}`,
+      {
+        isPublished: true,
+      }
+    );
   }
 }

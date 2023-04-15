@@ -6,6 +6,7 @@ import { AddCourseComponent } from './add-course/add-course.component';
 import { CourseComponent } from './course/course.component';
 import { CoursesComponent } from './courses/courses.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PublishedCourseComponent } from './published-course/published-course.component';
 
 export const routes: Routes = [
   {
@@ -15,6 +16,10 @@ export const routes: Routes = [
       {
         path: 'courses',
         component: CoursesComponent,
+      },
+      {
+        path: 'courses/published',
+        component: PublishedCourseComponent,
       },
       {
         path: 'course/:id',

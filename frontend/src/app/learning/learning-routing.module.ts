@@ -7,7 +7,7 @@ import { LiveClassDashboardComponent } from './live-class-dashboard/live-class-d
 
 const routes: Routes = [
   {
-    path: 'learning/dashboard/:course',
+    path: 'learning/dashboard/:courseId/:course',
     component: CourseDashboardComponent,
     children: [
       {

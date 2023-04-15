@@ -41,6 +41,7 @@ export class CourseComponent implements OnInit {
   });
 
   courseDetails?: CourseDetails;
+  isCoursePublished!: boolean;
   videos?: Video[];
   courseId = '';
   showUpdateButton = false;
@@ -54,6 +55,7 @@ export class CourseComponent implements OnInit {
       .pipe(take(1))
       .subscribe((res) => {
         this.courseDetails = res;
+        this.isCoursePublished = this.courseDetails.isPublished;
         console.log({ res });
       });
 
@@ -127,6 +129,15 @@ export class CourseComponent implements OnInit {
     const updatedData = { name, description, category, author, fees };
     this.coursesService.updateCourseDetails(this.courseId, updatedData);
     this.enableEditing = false;
+  }
+
+  publishCourse(courseId: number) {
+    console.log({ courseId });
+    this.coursesService.publishCourse(courseId).subscribe((res) => {
+      if (res) {
+        this.isCoursePublished = true;
+      }
+    });
   }
 }
 

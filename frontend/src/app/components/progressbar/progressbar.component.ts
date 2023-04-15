@@ -10,7 +10,7 @@ export class ProgressbarComponent implements OnInit {
 
   ngOnInit(): void {}
   @Input()
-  progressBarWidth: string = '160px';
+  progressBarWidth!: string;
   @Input()
-  progress: string = '50%';
+  progress!: string;
 }

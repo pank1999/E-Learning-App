@@ -2,12 +2,12 @@ import {
   Table,
   Column,
   Model,
-  DataType,
+  ForeignKey,
   HasMany,
-  ForeignKey
+  BelongsTo
 } from 'sequelize-typescript';
 import { User } from 'src/modules/users/user.entity';
-import { UsersCourses } from '../interface/users-courses.interface';
+import { CourseImage } from './course-image.entity';
 import { Course } from './course.entity';
 
 @Table
@@ -19,4 +19,7 @@ export class UsersCourse extends Model<UsersCourse> {
   @ForeignKey(() => Course)
   @Column
   courseId: number;
+
+  @BelongsTo(() => Course)
+  course: Course;
 }

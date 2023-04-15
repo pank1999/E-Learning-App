@@ -14,6 +14,7 @@ import { AddVideoDialog } from './course/course.component';
 import { AddVideoService } from './services/add-video.service';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DeleteService } from './services/delete.service';
+import { PublishedCourseComponent } from './published-course/published-course.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { DeleteService } from './services/delete.service';
     CoursesComponent,
     AddCourseImageComponent,
     AddVideoDialog,
+    PublishedCourseComponent,
   ],
   imports: [
     CommonModule,

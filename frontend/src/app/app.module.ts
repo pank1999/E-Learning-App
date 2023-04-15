@@ -32,6 +32,8 @@ import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { FacultyDashboardModule } from './modules/faculty-dashboard/faculty-dashboard.module';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { PrevDirective } from './directives/prev.directive';
+import { NextDirective } from './directives/next.directive';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     ProgressbarComponent,
     LiveClassDashboardComponent,
     CourseComponent,
+    PrevDirective,
+    NextDirective,
   ],
   imports: [
     BrowserModule,

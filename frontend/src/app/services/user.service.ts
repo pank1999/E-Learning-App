@@ -2,7 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthServiceService } from '../auth/auth-service.service';
 import { localStorageKeys } from '../constants';
-import { LocalLoggedInUser } from '../interface/user.types';
+import { IUsersCourse } from '../interface/user-course';
+import {
+  LocalLoggedInUser,
+  LoggedInUserDetails,
+} from '../interface/user.types';
 
 @Injectable({
   providedIn: 'root',
@@ -27,5 +31,14 @@ export class UserService {
   public get(key: string) {
     const data = localStorage.getItem(key);
     return data && JSON.parse(data);
+  }
+
+  public getUsersCourses() {
+    const loggedInUser: LoggedInUserDetails = this.get(
+      localStorageKeys.USER_DETAILS
+    );
+    return this.http.get<IUsersCourse[]>(
+      `http://localhost:3000/api/v1/course/usersCourse/${loggedInUser.id}}`
+    );
   }
 }

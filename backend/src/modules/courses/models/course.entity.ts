@@ -1,6 +1,16 @@
-import { Column, DataType, HasMany, Model, Table } from 'sequelize-typescript';
+import {
+  BelongsTo,
+  Column,
+  DataType,
+  ForeignKey,
+  HasMany,
+  Model,
+  Table
+} from 'sequelize-typescript';
+import { User } from 'src/modules/users/user.entity';
 import { CourseImage } from './course-image.entity';
 import { CourseSection } from './course-section.entity';
+import { Video } from './video.entity';
 
 @Table
 export class Course extends Model<Course> {
@@ -12,6 +22,12 @@ export class Course extends Model<Course> {
 
   @HasMany(() => CourseImage)
   image: CourseImage;
+
+  @HasMany(() => Video)
+  videos: Video;
+
+  // @HasMany(() => User)
+  // user: User;
 
   @Column({
     type: DataType.STRING,
@@ -54,9 +70,4 @@ export class Course extends Model<Course> {
 
   @Column
   progress: number;
-
-  // @BelongsToMany(() => User, {
-  //   through: { model: () => UsersCourse }
-  // })
-  // users: User[];
 }

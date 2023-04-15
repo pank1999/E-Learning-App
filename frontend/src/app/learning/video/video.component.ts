@@ -1,36 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { coursePLaylist } from 'src/assets/DummyData/course-playlsit';
+import { Video } from 'src/app/modules/faculty-dashboard/interfaces/video.interface';
+import { CourseService } from 'src/app/services/course.service';
 @Component({
   selector: 'app-video',
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.css'],
 })
 export class VideoComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private courseService: CourseService) {}
   like = 0;
   disLike = 0;
   VideoVisibility = 'hidden';
   PlayButtonVisibility = 'block';
-  SetPlayerVideoUrl: string | undefined =
-    './../../../assets/videos/Video-1.mp4';
+  SetPlayerVideoUrl: string | undefined;
   autoplay = false;
-  subTopicId = '1';
+  videoId = '1';
   courseName = '';
-  currentSection: any;
-  thumbnail: string = './../../../assets/image/thumbnail-1.png';
+  video!: Video;
   ngOnInit(): void {
     if (this.router.url.includes('/video')) {
-      this.subTopicId = this.router.url.split('/')[5];
-      const sectionId = this.subTopicId[0];
-      this.currentSection = coursePLaylist[parseInt(sectionId) - 1];
-      const subTopicObj = this.currentSection.Videos.filter(
-        (s: any) => s.id == this.subTopicId
-      );
-      this.SetPlayerVideoUrl = `./../../../assets/${subTopicObj[0]?.VideoUrl}`;
-      this.thumbnail = `./../../../assets/${subTopicObj[0]?.thumbnail}`;
+      this.videoId = this.router.url.split('/')[6];
+      console.log('video id:::', this.videoId);
+      this.courseService
+        .getVideoById(parseInt(this.videoId))
+        .subscribe((video) => {
+          if (video) {
+            this.video = video;
+            console.log(this.video);
+            this.SetPlayerVideoUrl = this.video?.videoUrl;
+            console.log(this.SetPlayerVideoUrl);
+          }
+        });
+
+      this.courseName = this.router.url.split('/')[4];
+      const name: string[] = this.courseName.split('%20');
+      this.courseName = name[0] + ' ' + name[1];
     }
-    this.courseName = this.router.url.split('/')[3];
   }
   PlayButtonClicked() {
     this.VideoVisibility = 'visible';

@@ -1,30 +1,29 @@
-<div class="container">
-    <div class="left">
-        <app-video></app-video>
-    </div>
-    <div class="right">
-        <div class="right-top">
-            <p>welcome back {{Username}}</p>
-            <app-progressbar progressBarWidth="350px" progress="30%"></app-progressbar>
+<div class="wrapper">
+    <div class="w-top">
+        <div>
+            <span routerLink="/learning" style="color:rgb(0, 139, 69);cursor: pointer;">COURSE </span><span>/
+                {{courseName}}</span>
         </div>
-        <div class="right-bottom">
-            <div class="playlist-container">
-                <div *ngFor="let section of coursePlayList">
-                    <div class="playlist-item">
-                        <div>
-                            <span>{{section.id}}</span><input type="checkbox" name="" id="">
+        <div class="progress-container">
+            <app-progressbar [progress]="course.progress.toString()"></app-progressbar>
+            <p>welcome back <span style="color: rgb(255, 183, 0);"> {{Username}}</span></p>
+        </div>
+    </div>
+
+    <div class="container-main">
+        <div class="left">
+            <app-video></app-video>
+        </div>
+        <div class="right">
+            <div class="right-bottom">
+                <div class="playlist-container">
+                    <div *ngFor="let video of coursePlayList;index as i;">
+                        <div class="playlist-item" (click)="playNext(video.id)">
+                            <div>
+                                <input type="checkbox" name="" id="">
+                            </div>
+                            <p>{{video.title}}</p>
                         </div>
-                        <p>{{section.Topic}}</p>
-                        <i class="fa-solid fa-caret-down" style="cursor: pointer;"
-                            (click)="ToggleSubTopics(section.id)"></i>
-                    </div>
-                    <div class="subTopics" *ngFor="let subTopics of section.Videos"
-                        [style.display]="section.Toggle?'flex':'none'" (click)="playNext(section.id,subTopics.id)">
-                        <div>
-                            <span>{{subTopics.id}}</span>
-                            <input type="checkbox">
-                        </div>
-                        <p>{{subTopics.subTopics}}</p>
                     </div>
                 </div>
             </div>

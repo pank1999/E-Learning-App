@@ -10,15 +10,19 @@ import { diskStorage } from 'multer';
 import { CoursesService } from './courses.service';
 import { CourseDto } from './dto/course.dto';
 import { CourseVideoDto } from './interface/course-video.interface';
+import { UsersCourses } from './interface/users-courses.interface';
+import { UsersCourse } from './models/users-courses.entity';
 import { CourseImageService } from './services/course-image.service';
 import { CourseVideoService } from './services/course-video.service';
+import { UsersCourseService } from './services/users-course.service';
 
 @Controller('course')
 export class CoursesController {
   constructor(
     private courseService: CoursesService,
     private courseImageService: CourseImageService,
-    private courseVideoService: CourseVideoService
+    private courseVideoService: CourseVideoService,
+    private usersCourseService: UsersCourseService
   ) {}
 
   // add course details
@@ -122,12 +126,28 @@ export class CoursesController {
     });
   }
 
+  // user course
+  @Post('/usersCourse')
+  public async usersCourse(@Body() userCourse: UsersCourses) {
+    console.log({ userCourse });
+    return await this.usersCourseService.AddUsersCourse(userCourse);
+  }
+
+  @Get('/usersCourse/:userId')
+  public async getUsersCourses(@Param('userId') userId: string) {
+    return await this.usersCourseService.getUsersCourses(parseInt(userId));
+  }
+
   @Get('/videos/:courseId')
   public async getAllCourseVideos(@Param('courseId') courseId: number) {
     console.log('get all course videos', { courseId });
     return await this.courseVideoService.getAllCourseVideosByCourseId(courseId);
   }
 
+  @Get('/video/:id')
+  public async getVideoById(@Param('id') Id: number) {
+    return await this.courseVideoService.getVideoById(Id);
+  }
   @Get()
   public async getAllCourses() {
     return await this.courseService.getAll();
@@ -137,6 +157,12 @@ export class CoursesController {
   public async getAllByFacultyId(@Param('facultyId') facultyId: number) {
     console.log({ facultyId });
     return await this.courseService.getAllByFacultyId(facultyId);
+  }
+
+  @Get('faculty/published/:facultyId')
+  public async getAllPublishedCourses(@Param('facultyId') facultyId: number) {
+    console.log({ facultyId });
+    return await this.courseService.getAllPublishedCourses(facultyId);
   }
 
   @Get('/category/:category')

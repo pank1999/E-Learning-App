@@ -1,0 +1,15 @@
+<div>
+  <h3>Published Courses</h3>
+  <div class="course-list">
+    <div class="course-item" *ngFor="let course of publishedCoursesList">
+      <img
+        [src]="course.image[0].Image"
+        height="150"
+        width="150"
+        alt="course-img"
+      />
+      <i class="fa fa-certificate certificate-icon" aria-hidden="true"></i>
+      <button (click)="goToCourse(course.id)">view</button>
+    </div>
+  </div>
+</div>

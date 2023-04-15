@@ -16,4 +16,12 @@ export interface LocalLoggedInUser {
   user: LoginUser;
   token: string;
 }
-export interface LoggedInUserDetails {}
+export interface LoggedInUserDetails {
+  id: number;
+  Name: string;
+  EmailId: string;
+  DOB: Date;
+  Gender: string;
+  role: string;
+  Password: string;
+}

@@ -3,7 +3,10 @@ import {
   Column,
   Model,
   DataType,
+  BelongsTo,
+  ForeignKey
 } from 'sequelize-typescript';
+import { Course } from './course.entity';
 
 @Table
 export class Video extends Model<Video> {
@@ -19,12 +22,9 @@ export class Video extends Model<Video> {
   })
   videoUrl: string;
 
-  @Column
+  @ForeignKey(() => Course)
   courseId: number;
 
-  // @ForeignKey(() => CourseSection)
-  // @Column
-  // sectionId: number;
-  // @BelongsTo(() => CourseSection)
-  // section: CourseSection;
+  @BelongsTo(() => Course)
+  course: Course;
 }

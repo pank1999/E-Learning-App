@@ -5,7 +5,8 @@ import {
   Model,
   DataType,
   BelongsTo,
-  BelongsToMany
+  BelongsToMany,
+  HasMany
 } from 'sequelize-typescript';
 import { Course } from '../courses/models/course.entity';
 import { UsersCourse } from '../courses/models/users-courses.entity';
